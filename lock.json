@@ -1,0 +1,694 @@
+{
+    "packages": [
+        {
+            "name": "@cfworker/json-schema",
+            "version": "4.1.1",
+            "as": [
+                "^4.0.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/autocomplete",
+            "version": "6.18.6",
+            "as": [
+                "^6.0.0",
+                "^6.3.2",
+                "^6.7.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/commands",
+            "version": "6.8.1",
+            "as": [
+                "^6.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lang-css",
+            "version": "6.3.1",
+            "as": [
+                "^6.3.1",
+                "^6.2.0",
+                "^6.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lang-go",
+            "version": "6.0.1",
+            "as": [
+                "^6.0.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lang-html",
+            "version": "6.4.9",
+            "as": [
+                "^6.4.9",
+                "^6.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lang-javascript",
+            "version": "6.2.4",
+            "as": [
+                "^6.2.4",
+                "^6.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lang-json",
+            "version": "6.0.2",
+            "as": [
+                "^6.0.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lang-liquid",
+            "version": "6.2.3",
+            "as": [
+                "^6.2.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lang-markdown",
+            "version": "6.3.3",
+            "as": [
+                "^6.3.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lang-python",
+            "version": "6.2.1",
+            "as": [
+                "^6.2.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lang-sass",
+            "version": "6.0.2",
+            "as": [
+                "^6.0.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/language",
+            "version": "6.11.2",
+            "as": [
+                "^6.0.0",
+                "^6.8.0",
+                "^6.4.0",
+                "^6.6.0",
+                "^6.3.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/lint",
+            "version": "6.8.5",
+            "as": [
+                "^6.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/search",
+            "version": "6.5.11",
+            "as": [
+                "^6.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/state",
+            "version": "6.5.2",
+            "as": [
+                "^6.5.2",
+                "^6.0.0",
+                "^6.5.0",
+                "^6.4.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/theme-one-dark",
+            "version": "6.1.3",
+            "as": [
+                "^6.1.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/view",
+            "version": "6.38.1",
+            "as": [
+                "^6.38.1",
+                "^6.0.0",
+                "^6.17.0",
+                "^6.23.0",
+                "^6.27.0",
+                "^6.35.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@fullstacked/codemirror-view",
+            "version": "0.0.0",
+            "git": "default",
+            "as": [
+                "github.com:fullstackedorg/codemirror-view"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@langchain/core",
+            "version": "0.3.66",
+            "as": [
+                "^0.3.66"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@langchain/ollama",
+            "version": "0.2.3",
+            "as": [
+                "^0.2.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/common",
+            "version": "1.2.3",
+            "as": [
+                "^1.0.2",
+                "^1.2.1",
+                "^1.0.0",
+                "^1.2.0",
+                "^1.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/css",
+            "version": "1.3.0",
+            "as": [
+                "^1.1.7",
+                "^1.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/go",
+            "version": "1.0.1",
+            "as": [
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/highlight",
+            "version": "1.2.1",
+            "as": [
+                "^1.0.0",
+                "^1.1.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/html",
+            "version": "1.3.10",
+            "as": [
+                "^1.3.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/javascript",
+            "version": "1.5.1",
+            "as": [
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/json",
+            "version": "1.0.3",
+            "as": [
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/lr",
+            "version": "1.4.2",
+            "as": [
+                "^1.3.0",
+                "^1.3.1",
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/markdown",
+            "version": "1.4.3",
+            "as": [
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/python",
+            "version": "1.1.18",
+            "as": [
+                "^1.1.4"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@lezer/sass",
+            "version": "1.1.0",
+            "as": [
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@marijn/find-cluster-break",
+            "version": "1.0.2",
+            "as": [
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@types/retry",
+            "version": "0.12.0",
+            "as": [
+                "0.12.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@types/uuid",
+            "version": "10.0.0",
+            "as": [
+                "^10.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "ansi-styles",
+            "version": "4.3.0",
+            "as": [
+                "^4.1.0"
+            ],
+            "location": [
+                "node_modules/chalk/node_modules"
+            ]
+        },
+        {
+            "name": "ansi-styles",
+            "version": "5.2.0",
+            "as": [
+                "^5.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "base64-js",
+            "version": "1.5.1",
+            "as": [
+                "^1.5.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "camelcase",
+            "version": "6.3.0",
+            "as": [
+                "6"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "chalk",
+            "version": "4.1.2",
+            "as": [
+                "^4.1.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "codemirror",
+            "version": "6.0.2",
+            "as": [
+                "6.0.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "color-convert",
+            "version": "2.0.1",
+            "as": [
+                "^2.0.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "color-name",
+            "version": "1.1.4",
+            "as": [
+                "~1.1.4"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "console-table-printer",
+            "version": "2.14.6",
+            "as": [
+                "^2.12.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "crelt",
+            "version": "1.0.6",
+            "as": [
+                "^1.0.6",
+                "^1.0.5"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "decamelize",
+            "version": "1.2.0",
+            "as": [
+                "1.2.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "eventemitter3",
+            "version": "4.0.7",
+            "as": [
+                "^4.0.4"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "has-flag",
+            "version": "4.0.0",
+            "as": [
+                "^4.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "js-tiktoken",
+            "version": "1.0.20",
+            "as": [
+                "^1.0.12"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "langsmith",
+            "version": "0.3.49",
+            "as": [
+                "^0.3.46"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "mustache",
+            "version": "4.2.0",
+            "as": [
+                "^4.2.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "ollama",
+            "version": "0.5.16",
+            "as": [
+                "^0.5.16",
+                "^0.5.12"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "p-finally",
+            "version": "1.0.0",
+            "as": [
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "p-queue",
+            "version": "6.6.2",
+            "as": [
+                "^6.6.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "p-retry",
+            "version": "4.6.2",
+            "as": [
+                "4"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "p-timeout",
+            "version": "3.2.0",
+            "as": [
+                "^3.2.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "retry",
+            "version": "0.13.1",
+            "as": [
+                "^0.13.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "semver",
+            "version": "7.7.2",
+            "as": [
+                "^7.6.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "simple-wcswidth",
+            "version": "1.1.2",
+            "as": [
+                "^1.0.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "style-mod",
+            "version": "4.1.2",
+            "as": [
+                "^4.1.0",
+                "^4.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "supports-color",
+            "version": "7.2.0",
+            "as": [
+                "^7.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "uuid",
+            "version": "10.0.0",
+            "as": [
+                "^10.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "w3c-keyname",
+            "version": "2.2.8",
+            "as": [
+                "^2.2.4"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "whatwg-fetch",
+            "version": "3.6.20",
+            "as": [
+                "^3.6.20"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "zod",
+            "version": "3.25.76",
+            "as": [
+                "^3.25.32"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "zod-to-json-schema",
+            "version": "3.24.6",
+            "as": [
+                "^3.22.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        }
+    ]
+}
