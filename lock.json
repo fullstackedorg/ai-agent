@@ -37,8 +37,8 @@
             "version": "6.3.1",
             "as": [
                 "^6.3.1",
-                "^6.2.0",
-                "^6.0.0"
+                "^6.0.0",
+                "^6.2.0"
             ],
             "location": [
                 "node_modules"
@@ -132,9 +132,9 @@
             "as": [
                 "^6.0.0",
                 "^6.8.0",
+                "^6.3.0",
                 "^6.4.0",
-                "^6.6.0",
-                "^6.3.0"
+                "^6.6.0"
             ],
             "location": [
                 "node_modules"
@@ -168,16 +168,6 @@
                 "^6.0.0",
                 "^6.5.0",
                 "^6.4.0"
-            ],
-            "location": [
-                "node_modules"
-            ]
-        },
-        {
-            "name": "@codemirror/theme-one-dark",
-            "version": "6.1.3",
-            "as": [
-                "^6.1.3"
             ],
             "location": [
                 "node_modules"
@@ -224,6 +214,16 @@
             "version": "0.2.3",
             "as": [
                 "^0.2.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@langchain/openai",
+            "version": "0.6.3",
+            "as": [
+                "^0.6.3"
             ],
             "location": [
                 "node_modules"
@@ -309,9 +309,9 @@
             "name": "@lezer/lr",
             "version": "1.4.2",
             "as": [
-                "^1.3.0",
                 "^1.3.1",
-                "^1.0.0"
+                "^1.0.0",
+                "^1.3.0"
             ],
             "location": [
                 "node_modules"
@@ -550,6 +550,17 @@
             ]
         },
         {
+            "name": "openai",
+            "version": "5.10.2",
+            "as": [
+                "^5.10.2",
+                "^5.3.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "p-finally",
             "version": "1.0.0",
             "as": [
@@ -620,6 +631,16 @@
             ]
         },
         {
+            "name": "streaming-markdown",
+            "version": "0.2.15",
+            "as": [
+                "^0.2.15"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "style-mod",
             "version": "4.1.2",
             "as": [
@@ -675,6 +696,17 @@
             "version": "3.25.76",
             "as": [
                 "^3.25.32"
+            ],
+            "location": [
+                "node_modules/@langchain/core/node_modules",
+                "node_modules/@langchain/openai/node_modules"
+            ]
+        },
+        {
+            "name": "zod",
+            "version": "4.0.13",
+            "as": [
+                "^4.0.13"
             ],
             "location": [
                 "node_modules"

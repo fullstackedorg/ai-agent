@@ -3,6 +3,10 @@
         "@fullstacked/codemirror-view": "github.com:fullstackedorg/codemirror-view",
         "@langchain/core": "^0.3.66",
         "@langchain/ollama": "^0.2.3",
-        "ollama": "^0.5.16"
+        "@langchain/openai": "^0.6.3",
+        "ollama": "^0.5.16",
+        "openai": "^5.10.2",
+        "streaming-markdown": "^0.2.15",
+        "zod": "^4.0.13"
     }
 }

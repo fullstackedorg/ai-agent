@@ -1,56 +1,72 @@
-// @ts-ignore
-import { Ollama as OllamaClient } from "ollama/browser";
-import type * as ollama from "ollama";
-import { core_fetch2 } from "fetch";
-import { ChatOllama } from "@langchain/ollama";
+import { createConversation } from "./conversation";
+import { tool } from "@langchain/core/tools";
+import { z } from "zod";
+import fs from "fs";
+import { createOllama } from "./providers/ollama";
 
-const opts: ollama.Config = {
-    host: "http://localhost:11434",
-    fetch: core_fetch2,
-};
-const ollamaClient: ollama.Ollama = new OllamaClient(opts);
+document.title = "FullStacked AI Agent";
 
-const { models } = await ollamaClient.list();
+const provider = createOllama();
+const models = await provider.models();
 
 const select = document.createElement("select");
 models.forEach((m) => {
     const option = document.createElement("option");
-    option.value = m.model;
-    option.innerText = m.name;
+    option.value = m;
+    option.innerText = m;
     select.append(option);
 });
 document.body.append(select);
 
-let chatOllama: ChatOllama;
-const setOllamaModel = () => {
-    chatOllama = new ChatOllama({
-        model: select.value,
-        fetch: core_fetch2
+const button = document.createElement("button");
+button.innerText = "New Chat";
+document.body.append(button);
+
+function createChat() {
+    const container = document.createElement("div");
+
+    const tools = [
+        tool(
+            async ({ path }) => {
+                return fs.readFile(path, { encoding: "utf8" });
+            },
+            {
+                name: "ReadFile",
+                description: "Get the content of the file at path.",
+                schema: z.object({
+                    path: z.string(),
+                }),
+            },
+        ),
+        tool(
+            async ({ path, content }) => {
+                return fs.writeFile(path, content);
+            },
+            {
+                name: "WriteFile",
+                description: "Write the content to the file at path.",
+                schema: z.object({
+                    path: z.string(),
+                    content: z.string(),
+                }),
+            },
+        ),
+    ];
+
+    const conversation = createConversation({
+        chatModel: provider.client(select.value),
+        tools,
     });
-};
-setOllamaModel();
-select.onchange = setOllamaModel;
 
-const response = document.createElement("div");
-document.body.append(response);
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Delete";
+    container.append(deleteBtn);
 
-const input = document.createElement("div");
-input.contentEditable = "true";
-input.innerText = "Ask me anything...";
+    deleteBtn.onclick = () => container.remove();
 
-input.addEventListener("keydown", async (e) => {
-    if (e.shiftKey || e.key !== "Enter") return;
-    
-    e.stopPropagation();
-    e.preventDefault();
-    
-    const prompt = input.innerText;
-    input.innerText = "";
-    
-    const stream = await chatOllama.stream(prompt);
-    for await (const chunk of stream) {
-        response.innerText += chunk.content;
-    }
-});
+    container.append(deleteBtn, conversation);
 
-document.body.append(input);
+    document.body.append(container);
+}
+
+button.onclick = createChat;
