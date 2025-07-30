@@ -1,8 +1,8 @@
-import { createConversation } from "./conversation";
+import { createConversation } from "./src/conversation";
 import { tool } from "@langchain/core/tools";
 import { z } from "zod";
 import fs from "fs";
-import { createOllama } from "./providers/ollama";
+import { createOllama } from "./src/providers/ollama";
 
 document.title = "FullStacked AI Agent";
 
@@ -26,31 +26,38 @@ function createChat() {
     const container = document.createElement("div");
 
     const tools = [
-        tool(
-            async ({ path }) => {
-                return fs.readFile(path, { encoding: "utf8" });
-            },
-            {
-                name: "ReadFile",
-                description: "Get the content of the file at path.",
-                schema: z.object({
-                    path: z.string(),
-                }),
-            },
-        ),
-        tool(
-            async ({ path, content }) => {
-                return fs.writeFile(path, content);
-            },
-            {
-                name: "WriteFile",
-                description: "Write the content to the file at path.",
-                schema: z.object({
-                    path: z.string(),
-                    content: z.string(),
-                }),
-            },
-        ),
+        {
+            tool: tool(
+                async ({ path }) => {
+                    return fs.readFile(path, { encoding: "utf8" });
+                },
+                {
+                    name: "ReadFile",
+                    description: "Get the content of the file at path.",
+                    schema: z.object({
+                        path: z.string(),
+                    }),
+                },
+            ),
+            message: ({ path }) => `Reading ${path}`,
+        },
+        {
+            tool: tool(
+                async ({ path, content }) => {
+                    return fs.writeFile(path, content);
+                },
+                {
+                    name: "WriteFile",
+                    description: "Write the content to the file at path.",
+                    schema: z.object({
+                        path: z.string(),
+                        content: z.string(),
+                    }),
+                },
+            ),
+            message: ({ path, content }) => `Writing ${content.length} chars to ${path}`,
+
+        },
     ];
 
     const conversation = createConversation({

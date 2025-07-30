@@ -13,12 +13,15 @@ import { ToolCall } from "@langchain/core/messages/tool";
 type ConversationOptions = {
     chatModel: BaseChatModel;
     messages?: BaseMessage[];
-    tools?: StructuredTool[];
+    tools?: {
+        tool: StructuredTool;
+        message?(args: any): string;
+    }[];
 };
 
 export function createConversation(opts: ConversationOptions) {
     const chatModel = opts.tools
-        ? opts.chatModel.bindTools(opts.tools)
+        ? opts.chatModel.bindTools(opts.tools.map(({ tool }) => tool))
         : opts.chatModel;
 
     const container = document.createElement("div");
@@ -27,12 +30,15 @@ export function createConversation(opts: ConversationOptions) {
     const conversationContainer = document.createElement("div");
 
     const onToolRequest = async (toolCall: ToolCall) => {
+        const t = opts.tools.find(
+            ({ tool: { name } }) => name === toolCall.name,
+        );
+
         const container = document.createElement("div");
-        container.innerText = toolCall.name;
+        container.innerText = t.message?.(toolCall.args) || toolCall.name;
         conversationContainer.append(container);
 
-        const tool = opts.tools.find(({ name }) => name === toolCall.name);
-        const toolResponse: ToolMessage = await tool.invoke(toolCall);
+        const toolResponse: ToolMessage = await t.tool.invoke(toolCall);
         conversation.push(toolResponse);
 
         return !!toolResponse.content;

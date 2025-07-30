@@ -1,4 +1,9 @@
 {
+    "name": "@fullstacked/ai-agent",
+    "version": "0.0.0",
+    "exports": {
+        "./*": "./src/*.ts"
+    },
     "dependencies": {
         "@fullstacked/codemirror-view": "github.com:fullstackedorg/codemirror-view",
         "@langchain/core": "^0.3.66",
