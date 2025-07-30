@@ -1,9 +1,4 @@
 {
-    "name": "@fullstacked/ai-agent",
-    "version": "0.0.0",
-    "exports": {
-        "./*": "./src/*.ts"
-    },
     "dependencies": {
         "@fullstacked/codemirror-view": "github.com:fullstackedorg/codemirror-view",
         "@langchain/core": "^0.3.66",
@@ -12,6 +7,11 @@
         "ollama": "^0.5.16",
         "openai": "^5.10.2",
         "streaming-markdown": "^0.2.15",
-        "zod": "^4.0.13"
-    }
+        "zod": "^3.25.76"
+    },
+    "exports": {
+        "./*": "./src/*.ts"
+    },
+    "name": "@fullstacked/ai-agent",
+    "version": "0.0.0"
 }
