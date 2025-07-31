@@ -33,10 +33,10 @@ controls.append(button3);
 
 document.body.append(controls);
 
-const chatSaveFile = "chat.json";
+const chatSaveFile = "data/chat.json";
+await fs.mkdir("data");
 
 async function createChat() {
-
     let messages = undefined;
     if (await fs.exists(chatSaveFile)) {
         messages = JSON.parse(
