@@ -6,23 +6,40 @@ import {
 } from "@langchain/core/messages";
 import { createHumanInput } from "./input";
 import { createMarkdownStreamRenderer } from "./markdown";
-import { BaseChatModel } from "@langchain/core/language_models/chat_models";
-import { StructuredTool } from "@langchain/core/tools";
+import { tool } from "@langchain/core/tools";
 import { ToolCall } from "@langchain/core/messages/tool";
+import { z } from "zod";
 
 type ConversationOptions = {
-    chatModel: BaseChatModel;
+    model: string;
+    provider: Provider;
     messages?: BaseMessage[];
-    tools?: {
-        tool: StructuredTool;
-        message?(args: any): string;
-    }[];
+    tools?: ReturnType<typeof createTool>[];
 };
 
+export function createTool<T extends z.ZodSchema>(opts: {
+    name: string;
+    description: string;
+    schema: T;
+    fn(args: z.infer<T>): any;
+    message?(args: z.infer<T>): string;
+}) {
+    return {
+        tool: tool(opts.fn, {
+            name: opts.name,
+            description: opts.description,
+            schema: opts.schema as any,
+        }),
+        message: opts.message,
+    };
+}
+
 export function createConversation(opts: ConversationOptions) {
+    const client = opts.provider.client(opts.model);
+
     const chatModel = opts.tools
-        ? opts.chatModel.bindTools(opts.tools.map(({ tool }) => tool))
-        : opts.chatModel;
+        ? client.bindTools(opts.tools.map(({ tool }) => tool))
+        : client;
 
     const container = document.createElement("div");
 

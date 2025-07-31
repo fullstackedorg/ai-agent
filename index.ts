@@ -1,5 +1,4 @@
-import { createConversation } from "./src/conversation";
-import { tool } from "@langchain/core/tools";
+import { createConversation, createTool } from "./src/conversation";
 import { z } from "zod";
 import fs from "fs";
 import { createOllama } from "./src/providers/ollama";
@@ -25,44 +24,35 @@ document.body.append(button);
 function createChat() {
     const container = document.createElement("div");
 
-    const tools = [
-        {
-            tool: tool(
-                async ({ path }) => {
+    const conversation = createConversation({
+        model: select.value,
+        provider,
+        tools: [
+            createTool({
+                name: "ReadFile",
+                description: "Get the content of the file at path.",
+                schema: z.object({
+                    path: z.string(),
+                }),
+                fn: async ({ path }) => {
                     return fs.readFile(path, { encoding: "utf8" });
                 },
-                {
-                    name: "ReadFile",
-                    description: "Get the content of the file at path.",
-                    schema: z.object({
-                        path: z.string(),
-                    }),
-                },
-            ),
-            message: ({ path }) => `Reading ${path}`,
-        },
-        {
-            tool: tool(
-                async ({ path, content }) => {
+                message: ({ path }) => `Reading ${path}`,
+            }),
+            createTool({
+                name: "WriteFile",
+                description: "Write the content to the file at path.",
+                schema: z.object({
+                    path: z.string(),
+                    content: z.string(),
+                }),
+                fn: async ({ path, content }) => {
                     return fs.writeFile(path, content);
                 },
-                {
-                    name: "WriteFile",
-                    description: "Write the content to the file at path.",
-                    schema: z.object({
-                        path: z.string(),
-                        content: z.string(),
-                    }),
-                },
-            ),
-            message: ({ path, content }) => `Writing ${content.length} chars to ${path}`,
-
-        },
-    ];
-
-    const conversation = createConversation({
-        chatModel: provider.client(select.value),
-        tools,
+                message: ({ path, content }) =>
+                    `Writing ${content.length} chars to ${path}`,
+            }),
+        ],
     });
 
     const deleteBtn = document.createElement("button");
