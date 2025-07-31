@@ -9,6 +9,7 @@ import { createMarkdownStreamRenderer } from "./markdown";
 import { tool } from "@langchain/core/tools";
 import { ToolCall } from "@langchain/core/messages/tool";
 import { z } from "zod";
+import { Provider } from "./providers/interface";
 
 type ConversationOptions = {
     model: string;
