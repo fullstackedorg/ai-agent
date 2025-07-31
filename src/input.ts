@@ -6,18 +6,19 @@ type HumanInputOptions = {
 export function createHumanInput(opts?: Partial<HumanInputOptions>) {
     const placeholder = opts?.placeholderText || "Ask me anything...";
     const input = document.createElement("div");
+    input.classList.add("input");
     input.contentEditable = "true";
     input.innerText = placeholder;
 
     input.addEventListener("focus", () => {
-        if(input.innerText !== placeholder) return;
+        if (input.innerText !== placeholder) return;
         input.innerText = "";
-    })
+    });
 
     input.addEventListener("blur", () => {
-        if(input.innerText !== "") return;
+        if (input.innerText !== "") return;
         input.innerText = placeholder;
-    })
+    });
 
     input.addEventListener("keydown", async (e) => {
         if (e.shiftKey || e.key !== "Enter") return;

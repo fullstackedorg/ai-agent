@@ -5,6 +5,8 @@ import { createOllama } from "./src/providers/ollama";
 
 document.title = "FullStacked AI Agent";
 
+const controls = document.createElement("div");
+
 const provider = createOllama();
 const models = await provider.models();
 
@@ -15,17 +17,36 @@ models.forEach((m) => {
     option.innerText = m;
     select.append(option);
 });
-document.body.append(select);
+controls.append(select);
 
 const button = document.createElement("button");
-button.innerText = "New Chat";
-document.body.append(button);
+button.innerText = "Load Chat";
+controls.append(button);
 
-function createChat() {
-    const container = document.createElement("div");
+const button2 = document.createElement("button");
+button2.innerText = "Save Chat";
+controls.append(button2);
+
+const button3 = document.createElement("button");
+button3.innerText = "Delete Chat";
+controls.append(button3);
+
+document.body.append(controls);
+
+const chatSaveFile = "chat.json";
+
+async function createChat() {
+
+    let messages = undefined;
+    if (await fs.exists(chatSaveFile)) {
+        messages = JSON.parse(
+            await fs.readFile(chatSaveFile, { encoding: "utf8" }),
+        );
+    }
 
     const conversation = createConversation({
         model: select.value,
+        messages,
         provider,
         tools: [
             createTool({
@@ -55,15 +76,17 @@ function createChat() {
         ],
     });
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "Delete";
-    container.append(deleteBtn);
+    document.body.append(conversation.element);
 
-    deleteBtn.onclick = () => container.remove();
+    button2.onclick = () => {
+        const chatData = JSON.stringify(conversation.serialize());
+        fs.writeFile(chatSaveFile, chatData);
+    };
 
-    container.append(deleteBtn, conversation);
-
-    document.body.append(container);
+    button3.onclick = () => {
+        fs.unlink(chatSaveFile);
+        conversation.element.remove();
+    };
 }
 
 button.onclick = createChat;

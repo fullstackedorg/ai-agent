@@ -2,7 +2,11 @@ import {
     AIMessageChunk,
     BaseMessage,
     HumanMessage,
+    mapChatMessagesToStoredMessages,
+    mapStoredMessagesToChatMessages,
+    StoredMessage,
     ToolMessage,
+    AIMessage,
 } from "@langchain/core/messages";
 import { createHumanInput } from "./input";
 import { createMarkdownStreamRenderer } from "./markdown";
@@ -14,7 +18,7 @@ import { Provider } from "./providers/interface";
 type ConversationOptions = {
     model: string;
     provider: Provider;
-    messages?: BaseMessage[];
+    messages?: StoredMessage[];
     tools?: ReturnType<typeof createTool>[];
 };
 
@@ -35,6 +39,19 @@ export function createTool<T extends z.ZodSchema>(opts: {
     };
 }
 
+function classForMessageType(message: BaseMessage) {
+    if (message instanceof HumanMessage) {
+        return "human";
+    } else if (
+        message instanceof AIMessage ||
+        message instanceof AIMessageChunk
+    ) {
+        return "ai";
+    } else if (message instanceof ToolMessage) {
+        return "tool";
+    }
+}
+
 export function createConversation(opts: ConversationOptions) {
     const client = opts.provider.client(opts.model);
 
@@ -42,10 +59,25 @@ export function createConversation(opts: ConversationOptions) {
         ? client.bindTools(opts.tools.map(({ tool }) => tool))
         : client;
 
-    const container = document.createElement("div");
+    const element = document.createElement("div");
+    element.classList.add("conversation");
 
-    const conversation: BaseMessage[] = opts?.messages || [];
-    const conversationContainer = document.createElement("div");
+    const conversation: BaseMessage[] = mapStoredMessagesToChatMessages(
+        opts?.messages || [],
+    );
+    const messagesContainer = document.createElement("div");
+    messagesContainer.classList.add("messages");
+
+    const renderMessage = (message: BaseMessage) => {
+        const messageContainer = document.createElement("div");
+        messageContainer.classList.add(classForMessageType(message));
+        messagesContainer.append(messageContainer);
+        const renderer = createMarkdownStreamRenderer(messageContainer);
+        renderer.write(message.response_metadata["user-defined-message"] || message.content as string);
+        renderer.end();
+    };
+
+    conversation.forEach(renderMessage);
 
     const onToolRequest = async (toolCall: ToolCall) => {
         const t = opts.tools.find(
@@ -53,10 +85,13 @@ export function createConversation(opts: ConversationOptions) {
         );
 
         const container = document.createElement("div");
-        container.innerText = t.message?.(toolCall.args) || toolCall.name;
-        conversationContainer.append(container);
+        const userDefinedMessage = t.message?.(toolCall.args) || `Using tool ${toolCall.name}`;
+        container.innerText = userDefinedMessage;
+        messagesContainer.append(container);
 
         const toolResponse: ToolMessage = await t.tool.invoke(toolCall);
+        toolResponse.response_metadata["user-defined-message"] =
+            userDefinedMessage;
         conversation.push(toolResponse);
 
         return !!toolResponse.content;
@@ -64,18 +99,15 @@ export function createConversation(opts: ConversationOptions) {
 
     const onHumanPrompt = (text: string) => {
         const humanMessage = new HumanMessage(text);
-        humanMessage.toJSON();
         conversation.push(humanMessage);
-        const humanMessageContainer = document.createElement("div");
-        humanMessageContainer.innerText = humanMessage.content as string;
-        conversationContainer.append(humanMessageContainer);
+        renderMessage(humanMessage);
         promptAgent();
     };
 
     const promptAgent = async () => {
         let done = false;
         const aiMessageContainer = document.createElement("div");
-        conversationContainer.append(aiMessageContainer);
+        messagesContainer.append(aiMessageContainer);
 
         const responseContainer = document.createElement("div");
         const loadingContainer = document.createElement("div");
@@ -100,6 +132,7 @@ export function createConversation(opts: ConversationOptions) {
             if (messageIndex === null) {
                 messageIndex = conversation.length;
                 conversation.push(chunk);
+                aiMessageContainer.classList.add(classForMessageType(chunk));
             } else {
                 conversation[messageIndex] = (
                     conversation[messageIndex] as AIMessageChunk
@@ -125,7 +158,12 @@ export function createConversation(opts: ConversationOptions) {
         onSubmit: onHumanPrompt,
     });
 
-    container.append(conversationContainer, humanInput);
+    element.append(messagesContainer, humanInput);
 
-    return container;
+    const serialize = () => mapChatMessagesToStoredMessages(conversation);
+
+    return {
+        element,
+        serialize,
+    };
 }
