@@ -15,8 +15,8 @@
             "version": "6.18.7",
             "as": [
                 "^6.0.0",
-                "^6.7.1",
-                "^6.3.2"
+                "^6.3.2",
+                "^6.7.1"
             ],
             "location": [
                 "node_modules"
@@ -131,10 +131,10 @@
             "version": "6.11.3",
             "as": [
                 "^6.0.0",
-                "^6.6.0",
                 "^6.4.0",
-                "^6.3.0",
-                "^6.8.0"
+                "^6.6.0",
+                "^6.8.0",
+                "^6.3.0"
             ],
             "location": [
                 "node_modules"
@@ -165,8 +165,8 @@
             "version": "6.5.2",
             "as": [
                 "^6.5.2",
-                "^6.5.0",
                 "^6.0.0",
+                "^6.5.0",
                 "^6.4.0"
             ],
             "location": [
@@ -178,9 +178,9 @@
             "version": "6.38.2",
             "as": [
                 "^6.38.1",
-                "^6.0.0",
                 "^6.17.0",
                 "^6.23.0",
+                "^6.0.0",
                 "^6.35.0",
                 "^6.27.0"
             ],
@@ -193,7 +193,6 @@
             "version": "0.0.0",
             "git": "default",
             "as": [
-                "github.com:fullstackedorg/codemirror-view",
                 "git+https://github.com:fullstackedorg/codemirror-view"
             ],
             "location": [
@@ -239,8 +238,8 @@
             "as": [
                 "^1.0.2",
                 "^1.0.0",
-                "^1.2.1",
                 "^1.2.0",
+                "^1.2.1",
                 "^1.1.0"
             ],
             "location": [
@@ -251,8 +250,8 @@
             "name": "@lezer/css",
             "version": "1.3.0",
             "as": [
-                "^1.1.7",
-                "^1.1.0"
+                "^1.1.0",
+                "^1.1.7"
             ],
             "location": [
                 "node_modules"
@@ -313,9 +312,9 @@
             "name": "@lezer/lr",
             "version": "1.4.2",
             "as": [
-                "^1.3.1",
                 "^1.0.0",
-                "^1.3.0"
+                "^1.3.0",
+                "^1.3.1"
             ],
             "location": [
                 "node_modules"
@@ -712,8 +711,8 @@
                 "^3.25.32"
             ],
             "location": [
-                "node_modules/@langchain/openai/node_modules",
-                "node_modules/@langchain/core/node_modules"
+                "node_modules/@langchain/core/node_modules",
+                "node_modules/@langchain/openai/node_modules"
             ]
         },
         {
