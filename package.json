@@ -1,6 +1,6 @@
 {
     "dependencies": {
-        "@fullstacked/codemirror-view": "github.com:fullstackedorg/codemirror-view",
+        "@fullstacked/codemirror-view": "github:fullstackedorg/codemirror-view",
         "@langchain/core": "^0.3.66",
         "@langchain/ollama": "^0.2.3",
         "@langchain/openai": "^0.6.3",
