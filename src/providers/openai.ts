@@ -1,11 +1,22 @@
 import { core_fetch2 } from "fetch";
-import { Provider } from "./interface";
+import { Provider, ProviderInfo } from "./interface";
 import openai from "openai";
 import { ChatOpenAI } from "@langchain/openai";
 
-async function models(opts: OpenAIOptions) {
+export const OpenAIInfo = {
+    id: "openai",
+    title: "OpenAI",
+    configs: {
+        apiKey: {
+            type: "string",
+            value: "",
+        },
+    },
+};
+
+async function models(apiKey: string) {
     const openAIClient = new openai({
-        apiKey: opts.apiKey,
+        apiKey,
         fetch: core_fetch2,
         dangerouslyAllowBrowser: true,
     });
@@ -14,17 +25,15 @@ async function models(opts: OpenAIOptions) {
     return models.data.map(({ id }) => id);
 }
 
-type OpenAIOptions = {
-    apiKey: string;
-};
+export function createOpenAI(opts?: typeof OpenAIInfo.configs): Provider {
+    const apiKey = opts?.apiKey?.value || OpenAIInfo.configs.apiKey.value;
 
-export function createOpenAI(opts: OpenAIOptions): Provider {
     return {
-        models: () => models(opts),
+        models: () => models(apiKey),
         client: (model) =>
             new ChatOpenAI({
                 model,
-                apiKey: opts.apiKey,
+                apiKey,
                 configuration: {
                     fetch: core_fetch2,
                 },
