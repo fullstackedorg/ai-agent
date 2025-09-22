@@ -13,9 +13,10 @@ type ConfigType =
 export type ProviderInfo = {
     id: string;
     title: string;
-    configs: {
-        [key: string]: ConfigType;
-    };
+    configs: (ConfigType & {
+        id: string;
+        title: string;
+    })[];
 };
 
 export interface Provider {

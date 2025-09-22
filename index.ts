@@ -3,12 +3,13 @@ import { z } from "zod";
 import fs from "fs";
 import { createOllama } from "./src/providers/ollama";
 import { StoredMessage } from "@langchain/core/messages";
+import { getProvider, providers } from "./src";
 
 document.title = "FullStacked AI Agent";
 
 const controls = document.createElement("div");
 
-const provider = createOllama();
+const provider = getProvider(providers().at(0));
 const models = await provider.models();
 
 const select = document.createElement("select");

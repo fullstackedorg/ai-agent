@@ -3,15 +3,17 @@ import { Provider, ProviderInfo } from "./interface";
 import openai from "openai";
 import { ChatOpenAI } from "@langchain/openai";
 
-export const OpenAIInfo = {
+export const OpenAIInfo: ProviderInfo = {
     id: "openai",
     title: "OpenAI",
-    configs: {
-        apiKey: {
+    configs: [
+        {
+            id: "apiKey",
+            title: "API Key",
             type: "string",
             value: "",
         },
-    },
+    ],
 };
 
 async function models(apiKey: string) {
@@ -26,7 +28,8 @@ async function models(apiKey: string) {
 }
 
 export function createOpenAI(opts?: typeof OpenAIInfo.configs): Provider {
-    const apiKey = opts?.apiKey?.value || OpenAIInfo.configs.apiKey.value;
+    const apiKey =
+        (opts?.find(({ id }) => id === "apiKey")?.value as string) || "";
 
     return {
         models: () => models(apiKey),
