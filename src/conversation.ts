@@ -73,7 +73,10 @@ export function createConversation(opts: ConversationOptions) {
         messageContainer.classList.add(classForMessageType(message));
         messagesContainer.append(messageContainer);
         const renderer = createMarkdownStreamRenderer(messageContainer);
-        renderer.write(message.response_metadata["user-defined-message"] || message.content as string);
+        renderer.write(
+            message.response_metadata["user-defined-message"] ||
+                (message.content as string),
+        );
         renderer.end();
     };
 
@@ -85,7 +88,8 @@ export function createConversation(opts: ConversationOptions) {
         );
 
         const container = document.createElement("div");
-        const userDefinedMessage = t.message?.(toolCall.args) || `Using tool ${toolCall.name}`;
+        const userDefinedMessage =
+            t.message?.(toolCall.args) || `Using tool ${toolCall.name}`;
         container.innerText = userDefinedMessage;
         messagesContainer.append(container);
 

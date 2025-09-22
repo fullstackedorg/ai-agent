@@ -2,6 +2,7 @@ import { createConversation, createTool } from "./src/conversation";
 import { z } from "zod";
 import fs from "fs";
 import { createOllama } from "./src/providers/ollama";
+import { StoredMessage } from "@langchain/core/messages";
 
 document.title = "FullStacked AI Agent";
 
@@ -37,7 +38,7 @@ const chatSaveFile = "data/chat.json";
 await fs.mkdir("data");
 
 async function createChat() {
-    let messages = undefined;
+    let messages: StoredMessage[] = undefined;
     if (await fs.exists(chatSaveFile)) {
         messages = JSON.parse(
             await fs.readFile(chatSaveFile, { encoding: "utf8" }),
