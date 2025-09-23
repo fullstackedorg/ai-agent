@@ -14,12 +14,14 @@ import { tool } from "@langchain/core/tools";
 import { ToolCall } from "@langchain/core/messages/tool";
 import { z } from "zod";
 import { Provider } from "./providers/interface";
+import { Extension } from "@codemirror/state";
 
 type ConversationOptions = {
     model: string;
     provider: Provider;
     messages?: StoredMessage[];
     tools?: ReturnType<typeof createTool>[];
+    codemirrorViewExtension?: Extension[]
 };
 
 export function createTool<T extends z.ZodSchema>(opts: {
@@ -72,7 +74,7 @@ export function createConversation(opts: ConversationOptions) {
         const messageContainer = document.createElement("div");
         messageContainer.classList.add(classForMessageType(message));
         messagesContainer.append(messageContainer);
-        const renderer = createMarkdownStreamRenderer(messageContainer);
+        const renderer = createMarkdownStreamRenderer(messageContainer, opts.codemirrorViewExtension);
         renderer.write(
             message.response_metadata["user-defined-message"] ||
                 (message.content as string),
@@ -129,7 +131,7 @@ export function createConversation(opts: ConversationOptions) {
 
         aiMessageContainer.append(responseContainer, loadingContainer);
 
-        const renderer = createMarkdownStreamRenderer(responseContainer);
+        const renderer = createMarkdownStreamRenderer(responseContainer, opts.codemirrorViewExtension);
         const stream = await chatModel.stream(conversation);
         let messageIndex: number = null;
         for await (const chunk of stream) {

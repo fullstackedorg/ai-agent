@@ -1,8 +1,12 @@
 import * as smd from "streaming-markdown";
 import { createCodeMirrorView } from "@fullstacked/codemirror-view";
 import { SupportedLanguage } from "@fullstacked/codemirror-view/languages";
+import { Extension } from "@codemirror/state";
 
-export function createMarkdownStreamRenderer(el: HTMLElement) {
+export function createMarkdownStreamRenderer(
+    el: HTMLElement,
+    cmExtensions?: Extension[],
+) {
     const renderer = smd.default_renderer(el);
     const defaultAddToken = renderer.add_token;
     renderer.add_token = function (data: any, type: any) {
@@ -11,9 +15,9 @@ export function createMarkdownStreamRenderer(el: HTMLElement) {
         }
 
         let parent = data.nodes[data.index];
-        const codeView = createCodeMirrorView() as ReturnType<
-            typeof createCodeMirrorView
-        > & {
+        const codeView = createCodeMirrorView({
+            extensions: cmExtensions || [],
+        }) as ReturnType<typeof createCodeMirrorView> & {
             setAttribute(attr: string, value: string): void;
             appendChild(text: Text): void;
         };

@@ -37,8 +37,8 @@
             "version": "6.3.1",
             "as": [
                 "^6.3.1",
-                "^6.2.0",
-                "^6.0.0"
+                "^6.0.0",
+                "^6.2.0"
             ],
             "location": [
                 "node_modules"
@@ -56,7 +56,7 @@
         },
         {
             "name": "@codemirror/lang-html",
-            "version": "6.4.9",
+            "version": "6.4.10",
             "as": [
                 "^6.4.9",
                 "^6.0.0"
@@ -131,8 +131,8 @@
             "version": "6.11.3",
             "as": [
                 "^6.0.0",
-                "^6.4.0",
                 "^6.6.0",
+                "^6.4.0",
                 "^6.8.0",
                 "^6.3.0"
             ],
@@ -164,8 +164,8 @@
             "name": "@codemirror/state",
             "version": "6.5.2",
             "as": [
-                "^6.5.2",
                 "^6.0.0",
+                "^6.5.2",
                 "^6.5.0",
                 "^6.4.0"
             ],
@@ -174,13 +174,23 @@
             ]
         },
         {
-            "name": "@codemirror/view",
-            "version": "6.38.2",
+            "name": "@codemirror/theme-one-dark",
+            "version": "6.1.3",
             "as": [
-                "^6.38.1",
-                "^6.17.0",
-                "^6.23.0",
+                "^6.1.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@codemirror/view",
+            "version": "6.38.3",
+            "as": [
                 "^6.0.0",
+                "^6.38.1",
+                "^6.23.0",
+                "^6.17.0",
                 "^6.35.0",
                 "^6.27.0"
             ],
@@ -193,6 +203,7 @@
             "version": "0.0.0",
             "git": "default",
             "as": [
+                "github.com:fullstackedorg/codemirror-view",
                 "git+https://github.com:fullstackedorg/codemirror-view"
             ],
             "location": [
@@ -201,10 +212,10 @@
         },
         {
             "name": "@langchain/core",
-            "version": "0.3.73",
+            "version": "0.3.77",
             "as": [
                 "^0.3.66",
-                "^0.3.73"
+                "^0.3.77"
             ],
             "location": [
                 "node_modules"
@@ -223,10 +234,10 @@
         },
         {
             "name": "@langchain/openai",
-            "version": "0.6.11",
+            "version": "0.6.13",
             "as": [
                 "^0.6.3",
-                "^0.6.11"
+                "^0.6.13"
             ],
             "location": [
                 "node_modules"
@@ -236,11 +247,11 @@
             "name": "@lezer/common",
             "version": "1.2.3",
             "as": [
-                "^1.0.2",
                 "^1.0.0",
-                "^1.2.0",
+                "^1.1.0",
+                "^1.0.2",
                 "^1.2.1",
-                "^1.1.0"
+                "^1.2.0"
             ],
             "location": [
                 "node_modules"
@@ -250,8 +261,8 @@
             "name": "@lezer/css",
             "version": "1.3.0",
             "as": [
-                "^1.1.0",
-                "^1.1.7"
+                "^1.1.7",
+                "^1.1.0"
             ],
             "location": [
                 "node_modules"
@@ -290,7 +301,7 @@
         },
         {
             "name": "@lezer/javascript",
-            "version": "1.5.2",
+            "version": "1.5.4",
             "as": [
                 "^1.0.0"
             ],
@@ -523,9 +534,9 @@
         },
         {
             "name": "langsmith",
-            "version": "0.3.67",
+            "version": "0.3.69",
             "as": [
-                "^0.3.46"
+                "^0.3.67"
             ],
             "location": [
                 "node_modules"
@@ -543,10 +554,11 @@
         },
         {
             "name": "ollama",
-            "version": "0.5.17",
+            "version": "0.5.18",
             "as": [
                 "^0.5.16",
-                "^0.5.17"
+                "^0.5.17",
+                "^0.5.18"
             ],
             "location": [
                 "node_modules"
@@ -564,10 +576,10 @@
         },
         {
             "name": "openai",
-            "version": "5.19.1",
+            "version": "5.22.1",
             "as": [
                 "^5.10.2",
-                "^5.19.1"
+                "^5.22.1"
             ],
             "location": [
                 "node_modules"
@@ -608,6 +620,16 @@
             "version": "3.2.0",
             "as": [
                 "^3.2.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "prettier",
+            "version": "3.6.2",
+            "as": [
+                "^3.6.2"
             ],
             "location": [
                 "node_modules"
@@ -711,16 +733,16 @@
                 "^3.25.32"
             ],
             "location": [
-                "node_modules/@langchain/core/node_modules",
-                "node_modules/@langchain/openai/node_modules"
+                "node_modules/@langchain/openai/node_modules",
+                "node_modules/@langchain/core/node_modules"
             ]
         },
         {
             "name": "zod",
-            "version": "4.1.5",
+            "version": "4.1.11",
             "as": [
                 "^4.0.14",
-                "^4.1.5"
+                "^4.1.11"
             ],
             "location": [
                 "node_modules"

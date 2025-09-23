@@ -4,6 +4,7 @@ import fs from "fs";
 import { createOllama } from "./src/providers/ollama";
 import { StoredMessage } from "@langchain/core/messages";
 import { getProvider, providers } from "./src";
+import { oneDark } from "@codemirror/theme-one-dark";
 
 document.title = "FullStacked AI Agent";
 
@@ -50,6 +51,7 @@ async function createChat() {
         model: select.value,
         messages,
         provider,
+        codemirrorViewExtension: [oneDark],
         tools: [
             createTool({
                 name: "ReadFile",
