@@ -19,7 +19,7 @@ export const OllamaInfo: ProviderInfo = {
             id: "headers",
             title: "Custom Headers",
             type: "key-value",
-            value: {},
+            value: [],
         },
     ],
 };

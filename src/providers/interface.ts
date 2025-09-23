@@ -7,7 +7,7 @@ type ConfigType =
       }
     | {
           type: "key-value";
-          value: Record<string, string>;
+          value: [string, string][];
       };
 
 export type ProviderInfo = {
