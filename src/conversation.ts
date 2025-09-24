@@ -21,7 +21,8 @@ type ConversationOptions = {
     provider: Provider;
     messages?: StoredMessage[];
     tools?: ReturnType<typeof createTool>[];
-    codemirrorViewExtension?: Extension[]
+    codemirrorViewExtension?: Extension[];
+    onStateChange?: (state: "STREAMING" | "IDLE") => void;
 };
 
 export function createTool<T extends z.ZodSchema>(opts: {
@@ -74,7 +75,10 @@ export function createConversation(opts: ConversationOptions) {
         const messageContainer = document.createElement("div");
         messageContainer.classList.add(classForMessageType(message));
         messagesContainer.append(messageContainer);
-        const renderer = createMarkdownStreamRenderer(messageContainer, opts.codemirrorViewExtension);
+        const renderer = createMarkdownStreamRenderer(
+            messageContainer,
+            opts.codemirrorViewExtension,
+        );
         renderer.write(
             message.response_metadata["user-defined-message"] ||
                 (message.content as string),
@@ -92,8 +96,14 @@ export function createConversation(opts: ConversationOptions) {
         const container = document.createElement("div");
         const userDefinedMessage =
             t.message?.(toolCall.args) || `Using tool ${toolCall.name}`;
-        container.innerText = userDefinedMessage;
         messagesContainer.append(container);
+
+        const renderer = createMarkdownStreamRenderer(
+            container,
+            opts.codemirrorViewExtension,
+        );
+        renderer.write(userDefinedMessage);
+        renderer.end();
 
         const toolResponse: ToolMessage = await t.tool.invoke(toolCall);
         toolResponse.response_metadata["user-defined-message"] =
@@ -131,7 +141,11 @@ export function createConversation(opts: ConversationOptions) {
 
         aiMessageContainer.append(responseContainer, loadingContainer);
 
-        const renderer = createMarkdownStreamRenderer(responseContainer, opts.codemirrorViewExtension);
+        opts.onStateChange?.("STREAMING");
+        const renderer = createMarkdownStreamRenderer(
+            responseContainer,
+            opts.codemirrorViewExtension,
+        );
         const stream = await chatModel.stream(conversation);
         let messageIndex: number = null;
         for await (const chunk of stream) {
@@ -158,6 +172,7 @@ export function createConversation(opts: ConversationOptions) {
             promptAgent();
         }
         done = true;
+        opts.onStateChange?.("IDLE");
     };
 
     const humanInput = createHumanInput({

@@ -34,6 +34,9 @@ const button3 = document.createElement("button");
 button3.innerText = "Delete Chat";
 controls.append(button3);
 
+const status = document.createElement("span");
+controls.append(status)
+
 document.body.append(controls);
 
 const chatSaveFile = "data/chat.json";
@@ -52,6 +55,7 @@ async function createChat() {
         messages,
         provider,
         codemirrorViewExtension: [oneDark],
+        onStateChange: (state) => status.innerText = state,
         tools: [
             createTool({
                 name: "ReadFile",
