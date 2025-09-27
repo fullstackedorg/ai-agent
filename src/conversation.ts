@@ -22,7 +22,7 @@ type ConversationOptions = {
     messages?: StoredMessage[];
     tools?: ReturnType<typeof createTool>[];
     codemirrorViewExtension?: Extension[];
-    onStateChange?: (state: "STREAMING" | "IDLE") => void;
+    onStateChange?: (state: "STREAMING" | "IDLE" | "ERROR") => void;
 };
 
 export function createTool<T extends z.ZodSchema>(opts: {
@@ -66,7 +66,7 @@ export function createConversation(opts: ConversationOptions) {
     element.classList.add("conversation");
 
     const conversation: BaseMessage[] = mapStoredMessagesToChatMessages(
-        opts?.messages || [],
+        opts.messages || [],
     );
     const messagesContainer = document.createElement("div");
     messagesContainer.classList.add("messages");
@@ -146,7 +146,16 @@ export function createConversation(opts: ConversationOptions) {
             responseContainer,
             opts.codemirrorViewExtension,
         );
-        const stream = await chatModel.stream(conversation);
+        let stream: Awaited<ReturnType<typeof chatModel.stream>>;
+        try {
+            stream = await chatModel.stream(conversation);
+        } catch (e) {
+            renderer.write(e.toString());
+            opts.onStateChange?.("ERROR");
+            done = true;
+            renderer.end();
+            return;
+        }
         let messageIndex: number = null;
         for await (const chunk of stream) {
             if (messageIndex === null) {
