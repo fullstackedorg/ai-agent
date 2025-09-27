@@ -19,6 +19,7 @@ export const DeepSeekInfo: ProviderInfo = {
 async function models(apiKey: string) {
     const client = new openai({
         apiKey,
+        baseURL: "https://api.deepseek.com",
         fetch: core_fetch2,
         dangerouslyAllowBrowser: true,
     });
