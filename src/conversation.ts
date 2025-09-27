@@ -177,10 +177,12 @@ export function createConversation(opts: ConversationOptions) {
         const aiMessage = conversation.at(messageIndex) as AIMessageChunk;
         const toolPromises = aiMessage.tool_calls.map((t) => onToolRequest(t));
         const awaitedToolPromises = await Promise.all(toolPromises);
-        if (awaitedToolPromises.some((r) => r)) {
-            promptAgent();
-        }
+        
         done = true;
+        
+        if (toolPromises.length) {
+            return promptAgent();
+        }
         opts.onStateChange?.("IDLE");
     };
 
