@@ -1,6 +1,8 @@
 {
     "dependencies": {
+        "@anthropic-ai/sdk": "^0.64.0",
         "@fullstacked/codemirror-view": "git+https://github.com:fullstackedorg/codemirror-view",
+        "@langchain/anthropic": "^0.3.28",
         "@langchain/core": "^0.3.66",
         "@langchain/ollama": "^0.2.3",
         "@langchain/openai": "^0.6.3",
