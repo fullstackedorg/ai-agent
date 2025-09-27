@@ -29,7 +29,7 @@ async function models(apiKey: string) {
     return models.data.map(({ id }) => id);
 }
 
-export function createOpenAI(opts?: typeof MistralInfo.configs): Provider {
+export function createMistral(opts?: typeof MistralInfo.configs): Provider {
     const apiKey =
         (opts?.find(({ id }) => id === "apiKey")?.value as string) || "";
 

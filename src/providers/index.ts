@@ -6,6 +6,7 @@ import { AnthropicInfo, createClaude } from "./anthropic";
 import { GoogleInfo, createGemini } from "./google";
 import { createGrok, xAIInfo } from "./xai";
 import { DeepSeekInfo, createDeepSeek } from "./deepseek";
+import { MistralInfo, createMistral } from "./mistral";
 
 export function providers(): ProviderInfo[] {
     return [
@@ -15,6 +16,7 @@ export function providers(): ProviderInfo[] {
         GoogleInfo,
         xAIInfo,
         DeepSeekInfo,
+        MistralInfo,
     ];
 }
 
@@ -32,6 +34,8 @@ export function getProvider(providerInfo: ProviderInfo) {
             return createGrok(providerInfo.configs);
         case "deepseek":
             return createDeepSeek(providerInfo.configs);
+        case "mistral":
+            return createMistral(providerInfo.configs);
     }
     return null;
 }
