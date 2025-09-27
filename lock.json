@@ -44,9 +44,9 @@
             "name": "@codemirror/autocomplete",
             "version": "6.18.7",
             "as": [
-                "^6.7.1",
+                "^6.3.2",
                 "^6.0.0",
-                "^6.3.2"
+                "^6.7.1"
             ],
             "location": [
                 "node_modules"
@@ -67,8 +67,8 @@
             "version": "6.3.1",
             "as": [
                 "^6.3.1",
-                "^6.2.0",
-                "^6.0.0"
+                "^6.0.0",
+                "^6.2.0"
             ],
             "location": [
                 "node_modules"
@@ -161,9 +161,9 @@
             "version": "6.11.3",
             "as": [
                 "^6.0.0",
+                "^6.8.0",
                 "^6.3.0",
                 "^6.6.0",
-                "^6.8.0",
                 "^6.4.0"
             ],
             "location": [
@@ -221,8 +221,8 @@
                 "^6.38.1",
                 "^6.23.0",
                 "^6.17.0",
-                "^6.35.0",
-                "^6.27.0"
+                "^6.27.0",
+                "^6.35.0"
             ],
             "location": [
                 "node_modules"
@@ -281,10 +281,30 @@
             ]
         },
         {
+            "name": "@langchain/deepseek",
+            "version": "0.1.0",
+            "as": [
+                "^0.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "@langchain/google-genai",
             "version": "0.2.18",
             "as": [
                 "^0.2.18"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@langchain/mistralai",
+            "version": "0.2.1",
+            "as": [
+                "^0.2.1"
             ],
             "location": [
                 "node_modules"
@@ -306,7 +326,18 @@
             "version": "0.6.13",
             "as": [
                 "^0.6.3",
+                "^0.6.0",
                 "^0.6.13"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@langchain/xai",
+            "version": "0.1.0",
+            "as": [
+                "^0.1.0"
             ],
             "location": [
                 "node_modules"
@@ -318,8 +349,8 @@
             "as": [
                 "^1.0.0",
                 "^1.1.0",
-                "^1.0.2",
                 "^1.2.1",
+                "^1.0.2",
                 "^1.2.0"
             ],
             "location": [
@@ -330,8 +361,8 @@
             "name": "@lezer/css",
             "version": "1.3.0",
             "as": [
-                "^1.1.0",
-                "^1.1.7"
+                "^1.1.7",
+                "^1.1.0"
             ],
             "location": [
                 "node_modules"
@@ -441,6 +472,16 @@
             ]
         },
         {
+            "name": "@mistralai/mistralai",
+            "version": "1.10.0",
+            "as": [
+                "^1.3.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "@types/retry",
             "version": "0.12.0",
             "as": [
@@ -494,8 +535,8 @@
             "name": "base64-js",
             "version": "1.5.1",
             "as": [
-                "^1.5.1",
-                "^1.3.0"
+                "^1.3.0",
+                "^1.5.1"
             ],
             "location": [
                 "node_modules"
@@ -1016,8 +1057,9 @@
             ],
             "location": [
                 "node_modules/@langchain/ollama/node_modules",
+                "node_modules/@langchain/core/node_modules",
                 "node_modules/langsmith/node_modules",
-                "node_modules/@langchain/core/node_modules"
+                "node_modules/@langchain/mistralai/node_modules"
             ]
         },
         {
@@ -1094,11 +1136,13 @@
             "name": "zod",
             "version": "3.25.76",
             "as": [
-                "^3.25.32"
+                "^3.25.32",
+                "^3.20.0"
             ],
             "location": [
                 "node_modules/@langchain/openai/node_modules",
-                "node_modules/@langchain/core/node_modules"
+                "node_modules/@langchain/core/node_modules",
+                "node_modules/@mistralai/mistralai/node_modules"
             ]
         },
         {
@@ -1116,7 +1160,8 @@
             "name": "zod-to-json-schema",
             "version": "3.24.6",
             "as": [
-                "^3.22.3"
+                "^3.22.3",
+                "^3.24.1"
             ],
             "location": [
                 "node_modules"

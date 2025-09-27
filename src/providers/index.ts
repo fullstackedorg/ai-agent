@@ -4,9 +4,18 @@ import { OllamaInfo, createOllama } from "./ollama";
 import { Provider } from "./interface";
 import { AnthropicInfo, createClaude } from "./anthropic";
 import { GoogleInfo, createGemini } from "./google";
+import { createGrok, xAIInfo } from "./xai";
+import { DeepSeekInfo, createDeepSeek } from "./deepseek";
 
 export function providers(): ProviderInfo[] {
-    return [OllamaInfo, OpenAIInfo, AnthropicInfo, GoogleInfo];
+    return [
+        OllamaInfo,
+        OpenAIInfo,
+        AnthropicInfo,
+        GoogleInfo,
+        xAIInfo,
+        DeepSeekInfo,
+    ];
 }
 
 export function getProvider(providerInfo: ProviderInfo) {
@@ -19,6 +28,10 @@ export function getProvider(providerInfo: ProviderInfo) {
             return createClaude(providerInfo.configs);
         case "google":
             return createGemini(providerInfo.configs);
+        case "xai":
+            return createGrok(providerInfo.configs);
+        case "deepseek":
+            return createDeepSeek(providerInfo.configs);
     }
     return null;
 }
