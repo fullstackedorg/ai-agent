@@ -2,10 +2,11 @@ import { ProviderInfo } from "./interface";
 import { OpenAIInfo, createOpenAI } from "./openai";
 import { OllamaInfo, createOllama } from "./ollama";
 import { Provider } from "./interface";
-import { AnthropicInfo, createClaudeAI } from "./anthropic";
+import { AnthropicInfo, createClaude } from "./anthropic";
+import { GoogleInfo, createGemini } from "./google";
 
 export function providers(): ProviderInfo[] {
-    return [OllamaInfo, OpenAIInfo, AnthropicInfo];
+    return [OllamaInfo, OpenAIInfo, AnthropicInfo, GoogleInfo];
 }
 
 export function getProvider(providerInfo: ProviderInfo) {
@@ -15,7 +16,9 @@ export function getProvider(providerInfo: ProviderInfo) {
         case "openai":
             return createOpenAI(providerInfo.configs);
         case "anthropic":
-            return createClaudeAI(providerInfo.configs);
+            return createClaude(providerInfo.configs);
+        case "google":
+            return createGemini(providerInfo.configs);
     }
     return null;
 }

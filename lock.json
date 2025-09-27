@@ -44,9 +44,9 @@
             "name": "@codemirror/autocomplete",
             "version": "6.18.7",
             "as": [
+                "^6.7.1",
                 "^6.0.0",
-                "^6.3.2",
-                "^6.7.1"
+                "^6.3.2"
             ],
             "location": [
                 "node_modules"
@@ -161,10 +161,10 @@
             "version": "6.11.3",
             "as": [
                 "^6.0.0",
-                "^6.4.0",
-                "^6.8.0",
+                "^6.3.0",
                 "^6.6.0",
-                "^6.3.0"
+                "^6.8.0",
+                "^6.4.0"
             ],
             "location": [
                 "node_modules"
@@ -195,8 +195,8 @@
             "version": "6.5.2",
             "as": [
                 "^6.0.0",
-                "^6.5.0",
                 "^6.5.2",
+                "^6.5.0",
                 "^6.4.0"
             ],
             "location": [
@@ -218,11 +218,11 @@
             "version": "6.38.3",
             "as": [
                 "^6.0.0",
-                "^6.23.0",
                 "^6.38.1",
+                "^6.23.0",
                 "^6.17.0",
-                "^6.27.0",
-                "^6.35.0"
+                "^6.35.0",
+                "^6.27.0"
             ],
             "location": [
                 "node_modules"
@@ -234,6 +234,26 @@
             "git": "default",
             "as": [
                 "git+https://github.com:fullstackedorg/codemirror-view"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@google/genai",
+            "version": "1.21.0",
+            "as": [
+                "^1.21.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@google/generative-ai",
+            "version": "0.24.1",
+            "as": [
+                "^0.24.0"
             ],
             "location": [
                 "node_modules"
@@ -255,6 +275,16 @@
             "as": [
                 "^0.3.66",
                 "^0.3.77"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@langchain/google-genai",
+            "version": "0.2.18",
+            "as": [
+                "^0.2.18"
             ],
             "location": [
                 "node_modules"
@@ -289,8 +319,8 @@
                 "^1.0.0",
                 "^1.1.0",
                 "^1.0.2",
-                "^1.2.0",
-                "^1.2.1"
+                "^1.2.1",
+                "^1.2.0"
             ],
             "location": [
                 "node_modules"
@@ -300,8 +330,8 @@
             "name": "@lezer/css",
             "version": "1.3.0",
             "as": [
-                "^1.1.7",
-                "^1.1.0"
+                "^1.1.0",
+                "^1.1.7"
             ],
             "location": [
                 "node_modules"
@@ -431,6 +461,16 @@
             ]
         },
         {
+            "name": "agent-base",
+            "version": "7.1.4",
+            "as": [
+                "^7.1.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "ansi-styles",
             "version": "4.3.0",
             "as": [
@@ -454,7 +494,28 @@
             "name": "base64-js",
             "version": "1.5.1",
             "as": [
-                "^1.5.1"
+                "^1.5.1",
+                "^1.3.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "bignumber.js",
+            "version": "9.3.1",
+            "as": [
+                "^9.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "buffer-equal-constant-time",
+            "version": "1.0.1",
+            "as": [
+                "^1.0.1"
             ],
             "location": [
                 "node_modules"
@@ -532,10 +593,31 @@
             ]
         },
         {
+            "name": "debug",
+            "version": "4.4.3",
+            "as": [
+                "4"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "decamelize",
             "version": "1.2.0",
             "as": [
                 "1.2.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "ecdsa-sig-formatter",
+            "version": "1.0.11",
+            "as": [
+                "^1.0.11",
+                "1.0.11"
             ],
             "location": [
                 "node_modules"
@@ -552,10 +634,71 @@
             ]
         },
         {
+            "name": "extend",
+            "version": "3.0.2",
+            "as": [
+                "^3.0.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "fast-xml-parser",
             "version": "4.5.3",
             "as": [
                 "^4.4.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "gaxios",
+            "version": "6.7.1",
+            "as": [
+                "^6.1.1",
+                "^6.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "gcp-metadata",
+            "version": "6.1.1",
+            "as": [
+                "^6.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "google-auth-library",
+            "version": "9.15.1",
+            "as": [
+                "^9.14.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "google-logging-utils",
+            "version": "0.0.2",
+            "as": [
+                "^0.0.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "gtoken",
+            "version": "7.1.0",
+            "as": [
+                "^7.0.0"
             ],
             "location": [
                 "node_modules"
@@ -572,10 +715,40 @@
             ]
         },
         {
+            "name": "https-proxy-agent",
+            "version": "7.0.6",
+            "as": [
+                "^7.0.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "is-stream",
+            "version": "2.0.1",
+            "as": [
+                "^2.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "js-tiktoken",
             "version": "1.0.21",
             "as": [
                 "^1.0.12"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "json-bigint",
+            "version": "1.0.0",
+            "as": [
+                "^1.0.0"
             ],
             "location": [
                 "node_modules"
@@ -592,6 +765,26 @@
             ]
         },
         {
+            "name": "jwa",
+            "version": "2.0.1",
+            "as": [
+                "^2.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "jws",
+            "version": "4.0.0",
+            "as": [
+                "^4.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "langsmith",
             "version": "0.3.69",
             "as": [
@@ -602,10 +795,30 @@
             ]
         },
         {
+            "name": "ms",
+            "version": "2.1.3",
+            "as": [
+                "^2.1.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "mustache",
             "version": "4.2.0",
             "as": [
                 "^4.2.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "node-fetch",
+            "version": "2.7.0",
+            "as": [
+                "^2.6.9"
             ],
             "location": [
                 "node_modules"
@@ -705,6 +918,16 @@
             ]
         },
         {
+            "name": "safe-buffer",
+            "version": "5.2.1",
+            "as": [
+                "^5.0.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "semver",
             "version": "7.7.2",
             "as": [
@@ -766,6 +989,16 @@
             ]
         },
         {
+            "name": "tr46",
+            "version": "0.0.3",
+            "as": [
+                "~0.0.3"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "ts-algebra",
             "version": "2.0.0",
             "as": [
@@ -782,7 +1015,29 @@
                 "^10.0.0"
             ],
             "location": [
+                "node_modules/@langchain/ollama/node_modules",
+                "node_modules/langsmith/node_modules",
+                "node_modules/@langchain/core/node_modules"
+            ]
+        },
+        {
+            "name": "uuid",
+            "version": "11.1.0",
+            "as": [
+                "^11.1.0"
+            ],
+            "location": [
                 "node_modules"
+            ]
+        },
+        {
+            "name": "uuid",
+            "version": "9.0.1",
+            "as": [
+                "^9.0.1"
+            ],
+            "location": [
+                "node_modules/gaxios/node_modules"
             ]
         },
         {
@@ -796,10 +1051,40 @@
             ]
         },
         {
+            "name": "webidl-conversions",
+            "version": "3.0.1",
+            "as": [
+                "^3.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "whatwg-fetch",
             "version": "3.6.20",
             "as": [
                 "^3.6.20"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "whatwg-url",
+            "version": "5.0.0",
+            "as": [
+                "^5.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "ws",
+            "version": "8.18.3",
+            "as": [
+                "^8.18.0"
             ],
             "location": [
                 "node_modules"

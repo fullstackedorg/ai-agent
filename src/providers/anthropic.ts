@@ -6,7 +6,7 @@ import { Provider } from "@fullstacked/ai-agent/src/providers/interface";
 
 export const AnthropicInfo: ProviderInfo = {
     id: "anthropic",
-    title: "ClaudeAI",
+    title: "Anthropic Claude",
     configs: [
         {
             id: "apiKey",
@@ -28,7 +28,7 @@ async function models(apiKey: string) {
     return models.data.map(({ id }) => id);
 }
 
-export function createClaudeAI(opts?: typeof AnthropicInfo.configs): Provider {
+export function createClaude(opts?: typeof AnthropicInfo.configs): Provider {
     const apiKey =
         (opts?.find(({ id }) => id === "apiKey")?.value as string) || "";
 

@@ -5,6 +5,7 @@ import { createOllama } from "./src/providers/ollama";
 import { StoredMessage } from "@langchain/core/messages";
 import { getProvider, providers } from "./src";
 import { oneDark } from "@codemirror/theme-one-dark";
+import {  } from "./src/providers/google";
 
 document.title = "FullStacked AI Agent";
 
@@ -35,7 +36,7 @@ button3.innerText = "Delete Chat";
 controls.append(button3);
 
 const status = document.createElement("span");
-controls.append(status)
+controls.append(status);
 
 document.body.append(controls);
 
@@ -55,7 +56,7 @@ async function createChat() {
         messages,
         provider,
         codemirrorViewExtension: [oneDark],
-        onStateChange: (state) => status.innerText = state,
+        onStateChange: (state) => (status.innerText = state),
         tools: [
             createTool({
                 name: "ReadFile",
