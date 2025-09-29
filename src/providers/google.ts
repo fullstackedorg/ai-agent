@@ -5,7 +5,7 @@ import { ProviderInfo } from "./interface";
 
 export const GoogleInfo: ProviderInfo = {
     id: "google",
-    title: "Google Gemini",
+    title: "Google",
     configs: [
         {
             id: "apiKey",

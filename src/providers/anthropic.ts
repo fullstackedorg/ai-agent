@@ -6,7 +6,7 @@ import { Provider } from "@fullstacked/ai-agent/src/providers/interface";
 
 export const AnthropicInfo: ProviderInfo = {
     id: "anthropic",
-    title: "Anthropic Claude",
+    title: "Anthropic",
     configs: [
         {
             id: "apiKey",

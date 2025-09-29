@@ -6,7 +6,7 @@ import { Mistral } from "@mistralai/mistralai";
 
 export const MistralInfo: ProviderInfo = {
     id: "mistral",
-    title: "MistralAI",
+    title: "Mistral AI",
     configs: [
         {
             id: "apiKey",

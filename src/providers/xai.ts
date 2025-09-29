@@ -5,7 +5,7 @@ import { ChatXAI } from "@langchain/xai";
 
 export const xAIInfo: ProviderInfo = {
     id: "xai",
-    title: "Grok",
+    title: "xAI",
     configs: [
         {
             id: "apiKey",
