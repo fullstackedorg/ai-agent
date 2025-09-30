@@ -177,9 +177,9 @@ export function createConversation(opts: ConversationOptions) {
         const aiMessage = conversation.at(messageIndex) as AIMessageChunk;
         const toolPromises = aiMessage.tool_calls.map((t) => onToolRequest(t));
         const awaitedToolPromises = await Promise.all(toolPromises);
-        
+
         done = true;
-        
+
         if (toolPromises.length) {
             return promptAgent();
         }
@@ -197,5 +197,6 @@ export function createConversation(opts: ConversationOptions) {
     return {
         element,
         serialize,
+        prompt: onHumanPrompt,
     };
 }
