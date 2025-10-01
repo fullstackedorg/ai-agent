@@ -15,6 +15,9 @@ import { ToolCall } from "@langchain/core/messages/tool";
 import { z } from "zod";
 import { Provider } from "./providers/interface";
 import { Extension } from "@codemirror/state";
+import { Runnable } from "@langchain/core/runnables";
+import { BaseLanguageModelInput } from "@langchain/core/language_models/base";
+import { BaseChatModelCallOptions } from "@langchain/core/language_models/chat_models";
 
 type ConversationOptions = {
     model: string;
@@ -56,11 +59,19 @@ function classForMessageType(message: BaseMessage) {
 }
 
 export function createConversation(opts: ConversationOptions) {
-    const client = opts.provider.client(opts.model);
+    let chatModel: Runnable<
+        BaseLanguageModelInput,
+        AIMessageChunk,
+        BaseChatModelCallOptions
+    >;
+    const updateChatModel = (provider: Provider, model: string) => {
+        const client = provider.client(model);
+        chatModel = opts.tools
+            ? client.bindTools(opts.tools.map(({ tool }) => tool))
+            : client;
+    };
 
-    const chatModel = opts.tools
-        ? client.bindTools(opts.tools.map(({ tool }) => tool))
-        : client;
+    updateChatModel(opts.provider, opts.model);
 
     const element = document.createElement("div");
     element.classList.add("conversation");
@@ -197,6 +208,7 @@ export function createConversation(opts: ConversationOptions) {
     return {
         element,
         serialize,
+        updateChatModel,
         prompt: onHumanPrompt,
         generateConversationTitle: async () => {
             const response = await chatModel.invoke([
