@@ -5,7 +5,7 @@ import { createOllama } from "./src/providers/ollama";
 import { StoredMessage } from "@langchain/core/messages";
 import { getProvider, providers } from "./src";
 import { oneDark } from "@codemirror/theme-one-dark";
-import {  } from "./src/providers/google";
+import {} from "./src/providers/google";
 
 document.title = "FullStacked AI Agent";
 
@@ -35,8 +35,13 @@ const button3 = document.createElement("button");
 button3.innerText = "Delete Chat";
 controls.append(button3);
 
+const button4 = document.createElement("button");
+button4.innerText = "Generate Title";
+controls.append(button4);
+
 const status = document.createElement("span");
-controls.append(status);
+const title = document.createElement("span");
+controls.append(status, title);
 
 document.body.append(controls);
 
@@ -95,6 +100,10 @@ async function createChat() {
     button3.onclick = () => {
         fs.unlink(chatSaveFile);
         conversation.element.remove();
+    };
+
+    button4.onclick = () => {
+        conversation.generateConversationTitle().then(t => title.innerText = t);
     };
 }
 

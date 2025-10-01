@@ -198,5 +198,18 @@ export function createConversation(opts: ConversationOptions) {
         element,
         serialize,
         prompt: onHumanPrompt,
+        generateConversationTitle: async () => {
+            const response = await chatModel.invoke([
+                ...conversation,
+                new HumanMessage(
+                    "Generate a title for this conversation with a 1 to 3 words.",
+                ),
+            ]);
+            return response.content
+                .toString()
+                .replace(/<think>(.|\s)*<\/think>\s*/g, "") // remove ollama think tags
+                .replace(/(\*|\"|\')*/g, "") // remove any md formatting
+                .trim();
+        },
     };
 }
