@@ -35,13 +35,19 @@ async function models(opts: ollama.Config) {
     return models.map((m) => m.name);
 }
 
+function keyValueArrToObject(arr: [string, string][]) {
+    const obj = {};
+    arr.forEach(([key, value]) => (key ? (obj[key] = value) : null));
+    return obj;
+}
+
 export function createOllama(opts?: typeof OllamaInfo.configs): Provider {
     const baseUrl =
         (opts?.find(({ id }) => id === "host")?.value as string) ||
         "http://localhost:11434";
-    const headers =
-        (opts?.find(({ id }) => id === "headers")?.value as {}) || {};
-
+    const headers = keyValueArrToObject(
+        (opts?.find(({ id }) => id === "headers")?.value as []) || [],
+    );
     return {
         models: () =>
             models({
