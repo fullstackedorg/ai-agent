@@ -8,17 +8,15 @@ import { createGrok, xAIInfo } from "./xai";
 import { DeepSeekInfo, createDeepSeek } from "./deepseek";
 import { MistralInfo, createMistral } from "./mistral";
 
-export function providers(): ProviderInfo[] {
-    return [
-        OllamaInfo,
-        OpenAIInfo,
-        AnthropicInfo,
-        GoogleInfo,
-        xAIInfo,
-        DeepSeekInfo,
-        MistralInfo,
-    ];
-}
+export const providersInfo = {
+    ollama: OllamaInfo,
+    openai: OpenAIInfo,
+    antropic: AnthropicInfo,
+    google: GoogleInfo,
+    xai: xAIInfo,
+    deepseek: DeepSeekInfo,
+    mistral: MistralInfo,
+} as const;
 
 export function getProvider(providerInfo: ProviderInfo) {
     switch (providerInfo.id) {

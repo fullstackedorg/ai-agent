@@ -3,7 +3,7 @@ import { z } from "zod";
 import fs from "fs";
 import { createOllama } from "./src/providers/ollama";
 import { StoredMessage } from "@langchain/core/messages";
-import { getProvider, providers } from "./src";
+import { getProvider, providersInfo } from "./src";
 import { oneDark } from "@codemirror/theme-one-dark";
 import {} from "./src/providers/google";
 
@@ -11,7 +11,7 @@ document.title = "FullStacked AI Agent";
 
 const controls = document.createElement("div");
 
-const provider = getProvider(providers().at(0));
+const provider = getProvider(providersInfo.ollama);
 const models = await provider.models();
 
 const select = document.createElement("select");
@@ -103,7 +103,9 @@ async function createChat() {
     };
 
     button4.onclick = () => {
-        conversation.generateConversationTitle().then(t => title.innerText = t);
+        conversation
+            .generateConversationTitle()
+            .then((t) => (title.innerText = t));
     };
 }
 

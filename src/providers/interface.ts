@@ -12,7 +12,7 @@ type ConfigType =
 
 export type ProviderInfo = {
     id: string;
-    title: string;
+    title?: string;
     configs: (ConfigType & {
         id: string;
         title: string;
