@@ -5,23 +5,32 @@ import { Provider, ProviderInfo } from "./interface";
 import { core_fetch2 } from "fetch";
 import { ChatOllama } from "@langchain/ollama";
 
-export const OllamaInfo: ProviderInfo = {
+export const OllamaInfo: ProviderInfo<{
+    host: {
+        title: "Host";
+        type: "string";
+        value: string;
+    };
+    headers: {
+        title: "Custom Headers";
+        type: "key-value";
+        value: [string, string][];
+    };
+}> = {
     id: "ollama",
     title: "Ollama",
-    configs: [
-        {
-            id: "host",
+    configs: {
+        host: {
             title: "Host",
             type: "string",
-            value: "http://localhost:11434",
+            value: "",
         },
-        {
-            id: "headers",
+        headers: {
             title: "Custom Headers",
             type: "key-value",
             value: [],
         },
-    ],
+    },
 };
 
 async function models(opts: ollama.Config) {
@@ -42,12 +51,8 @@ function keyValueArrToObject(arr: [string, string][]) {
 }
 
 export function createOllama(opts?: typeof OllamaInfo.configs): Provider {
-    const baseUrl =
-        (opts?.find(({ id }) => id === "host")?.value as string) ||
-        "http://localhost:11434";
-    const headers = keyValueArrToObject(
-        (opts?.find(({ id }) => id === "headers")?.value as []) || [],
-    );
+    const baseUrl = opts?.host?.value || "http://localhost:11434";
+    const headers = keyValueArrToObject(opts?.headers?.value || []);
     return {
         models: () =>
             models({

@@ -18,7 +18,7 @@ export const providersInfo = {
     mistral: MistralInfo,
 } as const;
 
-export function getProvider(providerInfo: ProviderInfo) {
+export function getProvider(providerInfo: ProviderInfo<any>) {
     switch (providerInfo.id) {
         case "ollama":
             return createOllama(providerInfo.configs);

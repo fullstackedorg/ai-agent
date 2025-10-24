@@ -3,17 +3,22 @@ import { Provider, ProviderInfo } from "./interface";
 import openai from "openai";
 import { ChatDeepSeek } from "@langchain/deepseek";
 
-export const DeepSeekInfo: ProviderInfo = {
+export const DeepSeekInfo: ProviderInfo<{
+    apiKey: {
+        title: "API Key";
+        type: "string";
+        value: string;
+    };
+}> = {
     id: "deepseek",
     title: "DeepSeek",
-    configs: [
-        {
-            id: "apiKey",
+    configs: {
+        apiKey: {
             title: "API Key",
             type: "string",
             value: "",
         },
-    ],
+    },
 };
 
 async function models(apiKey: string) {
@@ -29,8 +34,7 @@ async function models(apiKey: string) {
 }
 
 export function createDeepSeek(opts?: typeof DeepSeekInfo.configs): Provider {
-    const apiKey =
-        (opts?.find(({ id }) => id === "apiKey")?.value as string) || "";
+    const apiKey = opts?.apiKey?.value || "";
 
     return {
         models: () => models(apiKey),

@@ -4,17 +4,22 @@ import { ProviderInfo } from "./interface";
 import { core_fetch2 } from "fetch";
 import { Provider } from "@fullstacked/ai-agent/src/providers/interface";
 
-export const AnthropicInfo: ProviderInfo = {
+export const AnthropicInfo: ProviderInfo<{
+    apiKey: {
+        title: "API Key";
+        type: "string";
+        value: string;
+    };
+}> = {
     id: "anthropic",
     title: "Anthropic",
-    configs: [
-        {
-            id: "apiKey",
+    configs: {
+        apiKey: {
             title: "API Key",
             type: "string",
             value: "",
         },
-    ],
+    },
 };
 
 async function models(apiKey: string) {
@@ -29,8 +34,7 @@ async function models(apiKey: string) {
 }
 
 export function createClaude(opts?: typeof AnthropicInfo.configs): Provider {
-    const apiKey =
-        (opts?.find(({ id }) => id === "apiKey")?.value as string) || "";
+    const apiKey = opts?.apiKey?.value || "";
 
     return {
         models: () => models(apiKey),

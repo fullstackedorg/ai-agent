@@ -4,17 +4,22 @@ import { ChatMistralAI } from "@langchain/mistralai";
 import { HTTPClient } from "@mistralai/mistralai/lib/http";
 import { Mistral } from "@mistralai/mistralai";
 
-export const MistralInfo: ProviderInfo = {
+export const MistralInfo: ProviderInfo<{
+    apiKey: {
+        title: "API Key";
+        type: "string";
+        value: string;
+    };
+}> = {
     id: "mistral",
     title: "Mistral AI",
-    configs: [
-        {
-            id: "apiKey",
+    configs: {
+        apiKey: {
             title: "API Key",
             type: "string",
             value: "",
         },
-    ],
+    },
 };
 
 async function models(apiKey: string) {
@@ -30,8 +35,7 @@ async function models(apiKey: string) {
 }
 
 export function createMistral(opts?: typeof MistralInfo.configs): Provider {
-    const apiKey =
-        (opts?.find(({ id }) => id === "apiKey")?.value as string) || "";
+    const apiKey = opts?.apiKey?.value || "";
 
     return {
         models: () => models(apiKey),

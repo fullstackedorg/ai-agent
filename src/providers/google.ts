@@ -3,17 +3,22 @@ import { GoogleGenAI } from "@google/genai";
 import { Provider } from "@fullstacked/ai-agent/src/providers/interface";
 import { ProviderInfo } from "./interface";
 
-export const GoogleInfo: ProviderInfo = {
+export const GoogleInfo: ProviderInfo<{
+    apiKey: {
+        title: "API Key";
+        type: "string";
+        value: string;
+    };
+}> = {
     id: "google",
     title: "Google",
-    configs: [
-        {
-            id: "apiKey",
+    configs: {
+        apiKey: {
             title: "API Key",
             type: "string",
             value: "",
         },
-    ],
+    },
 };
 
 async function models(apiKey: string) {
@@ -26,8 +31,7 @@ async function models(apiKey: string) {
 }
 
 export function createGemini(opts?: typeof GoogleInfo.configs): Provider {
-    const apiKey =
-        (opts?.find(({ id }) => id === "apiKey")?.value as string) || "";
+    const apiKey = opts?.apiKey?.value || "";
 
     return {
         models: () => models(apiKey),

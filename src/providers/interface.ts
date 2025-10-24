@@ -10,13 +10,17 @@ type ConfigType =
           value: [string, string][];
       };
 
-export type ProviderInfo = {
+export type ProviderInfo<
+    C extends Record<
+        string,
+        ConfigType & {
+            title: string;
+        }
+    >,
+> = {
     id: string;
     title?: string;
-    configs: (ConfigType & {
-        id: string;
-        title: string;
-    })[];
+    configs: C;
 };
 
 export interface Provider {

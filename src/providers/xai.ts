@@ -3,17 +3,22 @@ import { Provider, ProviderInfo } from "./interface";
 import openai from "openai";
 import { ChatXAI } from "@langchain/xai";
 
-export const xAIInfo: ProviderInfo = {
+export const xAIInfo: ProviderInfo<{
+    apiKey: {
+        title: "API Key";
+        type: "string";
+        value: string;
+    };
+}> = {
     id: "xai",
     title: "xAI",
-    configs: [
-        {
-            id: "apiKey",
+    configs: {
+        apiKey: {
             title: "API Key",
             type: "string",
             value: "",
         },
-    ],
+    },
 };
 
 async function models(apiKey: string) {
@@ -29,8 +34,7 @@ async function models(apiKey: string) {
 }
 
 export function createGrok(opts?: typeof xAIInfo.configs): Provider {
-    const apiKey =
-        (opts?.find(({ id }) => id === "apiKey")?.value as string) || "";
+    const apiKey = opts?.apiKey?.value || "";
 
     return {
         models: () => models(apiKey),
