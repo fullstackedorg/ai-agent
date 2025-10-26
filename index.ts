@@ -5,7 +5,6 @@ import { createOllama } from "./src/providers/ollama";
 import { StoredMessage } from "@langchain/core/messages";
 import { getProvider, providersInfo } from "./src";
 import { oneDark } from "@codemirror/theme-one-dark";
-import {} from "./src/providers/google";
 
 document.title = "FullStacked AI Agent";
 

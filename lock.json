@@ -2,19 +2,9 @@
     "packages": [
         {
             "name": "@anthropic-ai/sdk",
-            "version": "0.56.0",
+            "version": "0.65.0",
             "as": [
-                "^0.56.0"
-            ],
-            "location": [
-                "node_modules/@langchain/anthropic/node_modules"
-            ]
-        },
-        {
-            "name": "@anthropic-ai/sdk",
-            "version": "0.64.0",
-            "as": [
-                "^0.64.0"
+                "^0.65.0"
             ],
             "location": [
                 "node_modules"
@@ -42,10 +32,10 @@
         },
         {
             "name": "@codemirror/autocomplete",
-            "version": "6.18.7",
+            "version": "6.19.1",
             "as": [
-                "^6.3.2",
                 "^6.0.0",
+                "^6.3.2",
                 "^6.7.1"
             ],
             "location": [
@@ -54,7 +44,7 @@
         },
         {
             "name": "@codemirror/commands",
-            "version": "6.8.1",
+            "version": "6.10.0",
             "as": [
                 "^6.0.0"
             ],
@@ -86,7 +76,7 @@
         },
         {
             "name": "@codemirror/lang-html",
-            "version": "6.4.10",
+            "version": "6.4.11",
             "as": [
                 "^6.4.9",
                 "^6.0.0"
@@ -128,7 +118,7 @@
         },
         {
             "name": "@codemirror/lang-markdown",
-            "version": "6.3.4",
+            "version": "6.5.0",
             "as": [
                 "^6.3.3"
             ],
@@ -161,10 +151,10 @@
             "version": "6.11.3",
             "as": [
                 "^6.0.0",
-                "^6.8.0",
-                "^6.3.0",
+                "^6.4.0",
                 "^6.6.0",
-                "^6.4.0"
+                "^6.8.0",
+                "^6.3.0"
             ],
             "location": [
                 "node_modules"
@@ -172,7 +162,7 @@
         },
         {
             "name": "@codemirror/lint",
-            "version": "6.8.5",
+            "version": "6.9.1",
             "as": [
                 "^6.0.0"
             ],
@@ -194,8 +184,8 @@
             "name": "@codemirror/state",
             "version": "6.5.2",
             "as": [
-                "^6.0.0",
                 "^6.5.2",
+                "^6.0.0",
                 "^6.5.0",
                 "^6.4.0"
             ],
@@ -215,14 +205,14 @@
         },
         {
             "name": "@codemirror/view",
-            "version": "6.38.3",
+            "version": "6.38.6",
             "as": [
-                "^6.0.0",
                 "^6.38.1",
+                "^6.0.0",
                 "^6.23.0",
                 "^6.17.0",
-                "^6.27.0",
-                "^6.35.0"
+                "^6.35.0",
+                "^6.27.0"
             ],
             "location": [
                 "node_modules"
@@ -241,9 +231,9 @@
         },
         {
             "name": "@google/genai",
-            "version": "1.21.0",
+            "version": "1.27.0",
             "as": [
-                "^1.21.0"
+                "^1.27.0"
             ],
             "location": [
                 "node_modules"
@@ -261,9 +251,9 @@
         },
         {
             "name": "@langchain/anthropic",
-            "version": "0.3.28",
+            "version": "1.0.0",
             "as": [
-                "^0.3.28"
+                "^1.0.0"
             ],
             "location": [
                 "node_modules"
@@ -271,10 +261,9 @@
         },
         {
             "name": "@langchain/core",
-            "version": "0.3.77",
+            "version": "1.0.1",
             "as": [
-                "^0.3.66",
-                "^0.3.77"
+                "^1.0.1"
             ],
             "location": [
                 "node_modules"
@@ -282,9 +271,9 @@
         },
         {
             "name": "@langchain/deepseek",
-            "version": "0.1.0",
+            "version": "1.0.0",
             "as": [
-                "^0.1.0"
+                "^1.0.0"
             ],
             "location": [
                 "node_modules"
@@ -292,9 +281,39 @@
         },
         {
             "name": "@langchain/google-genai",
-            "version": "0.2.18",
+            "version": "1.0.0",
             "as": [
-                "^0.2.18"
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@langchain/langgraph",
+            "version": "1.0.1",
+            "as": [
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@langchain/langgraph-checkpoint",
+            "version": "1.0.0",
+            "as": [
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@langchain/langgraph-sdk",
+            "version": "1.0.0",
+            "as": [
+                "~1.0.0"
             ],
             "location": [
                 "node_modules"
@@ -302,9 +321,9 @@
         },
         {
             "name": "@langchain/mistralai",
-            "version": "0.2.1",
+            "version": "1.0.0",
             "as": [
-                "^0.2.1"
+                "^1.0.0"
             ],
             "location": [
                 "node_modules"
@@ -312,10 +331,9 @@
         },
         {
             "name": "@langchain/ollama",
-            "version": "0.2.4",
+            "version": "1.0.0",
             "as": [
-                "^0.2.3",
-                "^0.2.4"
+                "^1.0.0"
             ],
             "location": [
                 "node_modules"
@@ -323,11 +341,9 @@
         },
         {
             "name": "@langchain/openai",
-            "version": "0.6.13",
+            "version": "1.0.0",
             "as": [
-                "^0.6.3",
-                "^0.6.0",
-                "^0.6.13"
+                "^1.0.0"
             ],
             "location": [
                 "node_modules"
@@ -335,9 +351,9 @@
         },
         {
             "name": "@langchain/xai",
-            "version": "0.1.0",
+            "version": "1.0.0",
             "as": [
-                "^0.1.0"
+                "^1.0.0"
             ],
             "location": [
                 "node_modules"
@@ -345,13 +361,14 @@
         },
         {
             "name": "@lezer/common",
-            "version": "1.2.3",
+            "version": "1.3.0",
             "as": [
-                "^1.0.0",
-                "^1.1.0",
-                "^1.2.1",
                 "^1.0.2",
-                "^1.2.0"
+                "^1.1.0",
+                "^1.3.0",
+                "^1.0.0",
+                "^1.2.0",
+                "^1.2.1"
             ],
             "location": [
                 "node_modules"
@@ -380,7 +397,7 @@
         },
         {
             "name": "@lezer/highlight",
-            "version": "1.2.1",
+            "version": "1.2.3",
             "as": [
                 "^1.0.0",
                 "^1.1.3"
@@ -391,9 +408,9 @@
         },
         {
             "name": "@lezer/html",
-            "version": "1.3.10",
+            "version": "1.3.12",
             "as": [
-                "^1.3.0"
+                "^1.3.12"
             ],
             "location": [
                 "node_modules"
@@ -424,8 +441,8 @@
             "version": "1.4.2",
             "as": [
                 "^1.0.0",
-                "^1.3.1",
-                "^1.3.0"
+                "^1.3.0",
+                "^1.3.1"
             ],
             "location": [
                 "node_modules"
@@ -433,7 +450,7 @@
         },
         {
             "name": "@lezer/markdown",
-            "version": "1.4.3",
+            "version": "1.5.1",
             "as": [
                 "^1.0.0"
             ],
@@ -475,7 +492,8 @@
             "name": "@mistralai/mistralai",
             "version": "1.10.0",
             "as": [
-                "^1.3.1"
+                "^1.3.1",
+                "^1.10.0"
             ],
             "location": [
                 "node_modules"
@@ -614,7 +632,7 @@
         },
         {
             "name": "console-table-printer",
-            "version": "2.14.6",
+            "version": "2.15.0",
             "as": [
                 "^2.12.1"
             ],
@@ -626,8 +644,18 @@
             "name": "crelt",
             "version": "1.0.6",
             "as": [
-                "^1.0.6",
-                "^1.0.5"
+                "^1.0.5",
+                "^1.0.6"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "data-uri-to-buffer",
+            "version": "4.0.1",
+            "as": [
+                "^4.0.0"
             ],
             "location": [
                 "node_modules"
@@ -685,10 +713,21 @@
             ]
         },
         {
-            "name": "fast-xml-parser",
-            "version": "4.5.3",
+            "name": "fetch-blob",
+            "version": "3.2.0",
             "as": [
-                "^4.4.1"
+                "^3.1.4",
+                "^3.1.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "formdata-polyfill",
+            "version": "4.0.10",
+            "as": [
+                "^4.0.10"
             ],
             "location": [
                 "node_modules"
@@ -696,10 +735,9 @@
         },
         {
             "name": "gaxios",
-            "version": "6.7.1",
+            "version": "7.1.2",
             "as": [
-                "^6.1.1",
-                "^6.0.0"
+                "^7.0.0"
             ],
             "location": [
                 "node_modules"
@@ -707,9 +745,9 @@
         },
         {
             "name": "gcp-metadata",
-            "version": "6.1.1",
+            "version": "8.1.1",
             "as": [
-                "^6.1.0"
+                "^8.0.0"
             ],
             "location": [
                 "node_modules"
@@ -717,9 +755,9 @@
         },
         {
             "name": "google-auth-library",
-            "version": "9.15.1",
+            "version": "10.4.2",
             "as": [
-                "^9.14.2"
+                "^10.3.0"
             ],
             "location": [
                 "node_modules"
@@ -727,9 +765,9 @@
         },
         {
             "name": "google-logging-utils",
-            "version": "0.0.2",
+            "version": "1.1.1",
             "as": [
-                "^0.0.2"
+                "^1.0.0"
             ],
             "location": [
                 "node_modules"
@@ -737,9 +775,9 @@
         },
         {
             "name": "gtoken",
-            "version": "7.1.0",
+            "version": "8.0.0",
             "as": [
-                "^7.0.0"
+                "^8.0.0"
             ],
             "location": [
                 "node_modules"
@@ -760,16 +798,6 @@
             "version": "7.0.6",
             "as": [
                 "^7.0.1"
-            ],
-            "location": [
-                "node_modules"
-            ]
-        },
-        {
-            "name": "is-stream",
-            "version": "2.0.1",
-            "as": [
-                "^2.0.0"
             ],
             "location": [
                 "node_modules"
@@ -826,10 +854,20 @@
             ]
         },
         {
-            "name": "langsmith",
-            "version": "0.3.69",
+            "name": "langchain",
+            "version": "1.0.1",
             "as": [
-                "^0.3.67"
+                "^1.0.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "langsmith",
+            "version": "0.3.74",
+            "as": [
+                "^0.3.64"
             ],
             "location": [
                 "node_modules"
@@ -856,10 +894,20 @@
             ]
         },
         {
-            "name": "node-fetch",
-            "version": "2.7.0",
+            "name": "node-domexception",
+            "version": "1.0.0",
             "as": [
-                "^2.6.9"
+                "^1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "node-fetch",
+            "version": "3.3.2",
+            "as": [
+                "^3.3.2"
             ],
             "location": [
                 "node_modules"
@@ -867,11 +915,9 @@
         },
         {
             "name": "ollama",
-            "version": "0.5.18",
+            "version": "0.6.0",
             "as": [
-                "^0.5.16",
-                "^0.5.17",
-                "^0.5.18"
+                "^0.6.0"
             ],
             "location": [
                 "node_modules"
@@ -879,20 +925,10 @@
         },
         {
             "name": "openai",
-            "version": "5.12.2",
+            "version": "6.7.0",
             "as": [
-                "5.12.2"
-            ],
-            "location": [
-                "node_modules/@langchain/openai/node_modules"
-            ]
-        },
-        {
-            "name": "openai",
-            "version": "5.22.1",
-            "as": [
-                "^5.10.2",
-                "^5.22.1"
+                "^6.7.0",
+                "^6.3.0"
             ],
             "location": [
                 "node_modules"
@@ -970,7 +1006,7 @@
         },
         {
             "name": "semver",
-            "version": "7.7.2",
+            "version": "7.7.3",
             "as": [
                 "^7.6.3"
             ],
@@ -982,7 +1018,7 @@
             "name": "simple-wcswidth",
             "version": "1.1.2",
             "as": [
-                "^1.0.1"
+                "^1.1.2"
             ],
             "location": [
                 "node_modules"
@@ -999,18 +1035,8 @@
             ]
         },
         {
-            "name": "strnum",
-            "version": "1.1.2",
-            "as": [
-                "^1.1.1"
-            ],
-            "location": [
-                "node_modules"
-            ]
-        },
-        {
             "name": "style-mod",
-            "version": "4.1.2",
+            "version": "4.1.3",
             "as": [
                 "^4.0.0",
                 "^4.1.0"
@@ -1024,16 +1050,6 @@
             "version": "7.2.0",
             "as": [
                 "^7.1.0"
-            ],
-            "location": [
-                "node_modules"
-            ]
-        },
-        {
-            "name": "tr46",
-            "version": "0.0.3",
-            "as": [
-                "~0.0.3"
             ],
             "location": [
                 "node_modules"
@@ -1056,10 +1072,13 @@
                 "^10.0.0"
             ],
             "location": [
-                "node_modules/@langchain/ollama/node_modules",
+                "node_modules/@langchain/langgraph-checkpoint/node_modules",
+                "node_modules/@langchain/langgraph/node_modules",
                 "node_modules/@langchain/core/node_modules",
-                "node_modules/langsmith/node_modules",
-                "node_modules/@langchain/mistralai/node_modules"
+                "node_modules/langchain/node_modules",
+                "node_modules/@langchain/ollama/node_modules",
+                "node_modules/@langchain/mistralai/node_modules",
+                "node_modules/langsmith/node_modules"
             ]
         },
         {
@@ -1076,10 +1095,10 @@
             "name": "uuid",
             "version": "9.0.1",
             "as": [
-                "^9.0.1"
+                "^9.0.0"
             ],
             "location": [
-                "node_modules/gaxios/node_modules"
+                "node_modules/@langchain/langgraph-sdk/node_modules"
             ]
         },
         {
@@ -1093,10 +1112,10 @@
             ]
         },
         {
-            "name": "webidl-conversions",
-            "version": "3.0.1",
+            "name": "web-streams-polyfill",
+            "version": "3.3.3",
             "as": [
-                "^3.0.0"
+                "^3.0.3"
             ],
             "location": [
                 "node_modules"
@@ -1107,16 +1126,6 @@
             "version": "3.6.20",
             "as": [
                 "^3.6.20"
-            ],
-            "location": [
-                "node_modules"
-            ]
-        },
-        {
-            "name": "whatwg-url",
-            "version": "5.0.0",
-            "as": [
-                "^5.0.0"
             ],
             "location": [
                 "node_modules"
@@ -1136,21 +1145,18 @@
             "name": "zod",
             "version": "3.25.76",
             "as": [
-                "^3.25.32",
                 "^3.20.0"
             ],
             "location": [
-                "node_modules/@langchain/openai/node_modules",
-                "node_modules/@langchain/core/node_modules",
                 "node_modules/@mistralai/mistralai/node_modules"
             ]
         },
         {
             "name": "zod",
-            "version": "4.1.11",
+            "version": "4.1.12",
             "as": [
-                "^4.0.14",
-                "^4.1.11"
+                "^4.1.12",
+                "^3.25.76 || ^4"
             ],
             "location": [
                 "node_modules"
@@ -1160,7 +1166,6 @@
             "name": "zod-to-json-schema",
             "version": "3.24.6",
             "as": [
-                "^3.22.3",
                 "^3.24.1"
             ],
             "location": [
