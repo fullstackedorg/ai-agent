@@ -34,10 +34,10 @@ export const OllamaInfo: ProviderInfo<{
 };
 
 async function models(opts: ollama.Config) {
-    const ollamaClient: ollama.Ollama = new OllamaClient({
+    const ollamaClient = new OllamaClient({
         ...opts,
         fetch: core_fetch2,
-    });
+    }) as ollama.Ollama;
 
     const { models } = await ollamaClient.list();
 
