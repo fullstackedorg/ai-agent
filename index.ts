@@ -1,10 +1,10 @@
 import { createConversation, createTool } from "./src/conversation";
 import { z } from "zod";
 import fs from "fs";
-import { createOllama } from "./src/providers/ollama";
 import { StoredMessage } from "@langchain/core/messages";
 import { getProvider, providersInfo } from "./src";
 import { oneDark } from "@codemirror/theme-one-dark";
+
 
 document.title = "FullStacked AI Agent";
 
@@ -17,6 +17,7 @@ const select = document.createElement("select");
 models.forEach((m) => {
     const option = document.createElement("option");
     option.value = m;
+
     option.innerText = m;
     select.append(option);
 });
