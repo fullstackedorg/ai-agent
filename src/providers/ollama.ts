@@ -6,11 +6,6 @@ import { core_fetch2 } from "fetch";
 import { ChatOllama } from "@langchain/ollama";
 
 export const OllamaInfo: ProviderInfo<{
-    think: {
-        title: "Thinking";
-        type: "boolean";
-        value: boolean;
-    };
     host: {
         title: "Host";
         type: "string";
@@ -21,15 +16,15 @@ export const OllamaInfo: ProviderInfo<{
         type: "key-value";
         value: [string, string][];
     };
+    think: {
+        title: "Thinking";
+        type: "boolean";
+        value: boolean;
+    };
 }> = {
     id: "ollama",
     title: "Ollama",
     configs: {
-        think: {
-            title: "Thinking",
-            type: "boolean",
-            value: true
-        },
         host: {
             title: "Host",
             type: "string",
@@ -39,6 +34,11 @@ export const OllamaInfo: ProviderInfo<{
             title: "Custom Headers",
             type: "key-value",
             value: []
+        },
+        think: {
+            title: "Thinking",
+            type: "boolean",
+            value: true
         }
     }
 };
