@@ -4,6 +4,9 @@ type HumanInputOptions = {
 };
 
 export function createHumanInput(opts?: Partial<HumanInputOptions>) {
+    const container = document.createElement("div");
+    container.classList.add("input-container");
+
     const placeholder = opts?.placeholderText || "Ask me anything...";
     const input = document.createElement("div");
     input.classList.add("input");
@@ -32,5 +35,7 @@ export function createHumanInput(opts?: Partial<HumanInputOptions>) {
         input.blur();
     });
 
-    return input;
+    container.append(input);
+
+    return container;
 }
