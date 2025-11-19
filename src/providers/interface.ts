@@ -2,6 +2,10 @@ import { BaseChatModel } from "@langchain/core/language_models/chat_models";
 
 type ConfigType =
     | {
+          type: "boolean";
+          value: boolean;
+      }
+    | {
           type: "string";
           value: string;
       }
@@ -16,7 +20,7 @@ export type ProviderInfo<
         ConfigType & {
             title: string;
         }
-    >,
+    >
 > = {
     id: string;
     title?: string;
@@ -25,5 +29,5 @@ export type ProviderInfo<
 
 export interface Provider {
     models(): Promise<string[]>;
-    client(model: string): BaseChatModel;
+    client(model: string, forcedOpts?: any): BaseChatModel;
 }

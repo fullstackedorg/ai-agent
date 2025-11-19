@@ -18,8 +18,11 @@ import { Extension } from "@codemirror/state";
 import { Runnable } from "@langchain/core/runnables";
 import { BaseLanguageModelInput } from "@langchain/core/language_models/base";
 import { BaseChatModelCallOptions } from "@langchain/core/language_models/chat_models";
-import { humanMessageClass,
-messagesClass, conversationClass } from "./conversation.s";
+import {
+    humanMessageClass,
+    messagesClass,
+    conversationClass
+} from "./conversation.s";
 
 type ConversationOptions = {
     model: string;
@@ -213,12 +216,18 @@ export function createConversation(opts: ConversationOptions) {
         updateChatModel,
         prompt: onHumanPrompt,
         generateConversationTitle: async () => {
-            const response = await chatModel.invoke([
+            const client =
+                chatModel.getName() === "ChatOllama"
+                    ? opts.provider.client(opts.model, { think: false })
+                    : chatModel;
+
+            const response = await client.invoke([
                 ...conversation,
                 new HumanMessage(
-                    "Without thinking, generate a title for this conversation with a 1 to 3 words."
+                    "Generate a title for this conversation with 1 to 3 words."
                 )
             ]);
+            
             return response.content
                 .toString()
                 .replace(/<think>(.|\s)*<\/think>\s*/g, "") // remove ollama think tags

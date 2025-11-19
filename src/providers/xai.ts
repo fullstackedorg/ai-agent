@@ -16,9 +16,9 @@ export const xAIInfo: ProviderInfo<{
         apiKey: {
             title: "API Key",
             type: "string",
-            value: "",
-        },
-    },
+            value: ""
+        }
+    }
 };
 
 async function models(apiKey: string) {
@@ -26,7 +26,7 @@ async function models(apiKey: string) {
         apiKey,
         fetch: core_fetch2,
         baseURL: "https://api.x.ai/v1",
-        dangerouslyAllowBrowser: true,
+        dangerouslyAllowBrowser: true
     });
 
     const models = await client.models.list();
@@ -41,7 +41,7 @@ export function createGrok(opts?: typeof xAIInfo.configs): Provider {
         client: (model) =>
             new ChatXAI({
                 model,
-                apiKey,
-            }),
+                apiKey
+            })
     };
 }

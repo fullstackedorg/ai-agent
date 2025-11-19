@@ -15,14 +15,14 @@ export const GoogleInfo: ProviderInfo<{
         apiKey: {
             title: "API Key",
             type: "string",
-            value: "",
-        },
-    },
+            value: ""
+        }
+    }
 };
 
 async function models(apiKey: string) {
     const googleClient = new GoogleGenAI({
-        apiKey,
+        apiKey
     });
 
     const models = await googleClient.models.list();
@@ -39,6 +39,6 @@ export function createGemini(opts?: typeof GoogleInfo.configs): Provider {
                 model,
                 apiKey,
                 maxRetries: 1
-            }),
+            })
     };
 }

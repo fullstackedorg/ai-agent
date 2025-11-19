@@ -10,7 +10,9 @@ document.title = "FullStacked AI Agent";
 
 const controls = document.createElement("div");
 
-const provider = getProvider(providersInfo.ollama);
+const ollama = providersInfo.ollama;
+ollama.configs.think.value = false;
+const provider = getProvider(ollama);
 const models = await provider.models();
 
 const select = document.createElement("select");

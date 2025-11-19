@@ -16,16 +16,16 @@ export const OpenAIInfo: ProviderInfo<{
         apiKey: {
             title: "API Key",
             type: "string",
-            value: "",
-        },
-    },
+            value: ""
+        }
+    }
 };
 
 async function models(apiKey: string) {
     const openAIClient = new openai({
         apiKey,
         fetch: core_fetch2,
-        dangerouslyAllowBrowser: true,
+        dangerouslyAllowBrowser: true
     });
 
     const models = await openAIClient.models.list();
@@ -42,8 +42,8 @@ export function createOpenAI(opts?: typeof OpenAIInfo.configs): Provider {
                 model,
                 apiKey,
                 configuration: {
-                    fetch: core_fetch2,
-                },
-            }),
+                    fetch: core_fetch2
+                }
+            })
     };
 }

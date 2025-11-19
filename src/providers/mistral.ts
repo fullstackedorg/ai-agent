@@ -17,17 +17,17 @@ export const MistralInfo: ProviderInfo<{
         apiKey: {
             title: "API Key",
             type: "string",
-            value: "",
-        },
-    },
+            value: ""
+        }
+    }
 };
 
 async function models(apiKey: string) {
     const mistralClient = new Mistral({
         apiKey: apiKey,
         httpClient: {
-            request: (r) => core_fetch2(r),
-        } as HTTPClient,
+            request: (r) => core_fetch2(r)
+        } as HTTPClient
     });
 
     const models = await mistralClient.models.list();
@@ -44,8 +44,8 @@ export function createMistral(opts?: typeof MistralInfo.configs): Provider {
                 model,
                 apiKey,
                 httpClient: {
-                    request: (r) => core_fetch2(r),
-                } as HTTPClient,
-            }),
+                    request: (r) => core_fetch2(r)
+                } as HTTPClient
+            })
     };
 }

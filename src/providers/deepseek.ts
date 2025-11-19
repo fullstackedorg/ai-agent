@@ -16,9 +16,9 @@ export const DeepSeekInfo: ProviderInfo<{
         apiKey: {
             title: "API Key",
             type: "string",
-            value: "",
-        },
-    },
+            value: ""
+        }
+    }
 };
 
 async function models(apiKey: string) {
@@ -26,7 +26,7 @@ async function models(apiKey: string) {
         apiKey,
         baseURL: "https://api.deepseek.com",
         fetch: core_fetch2,
-        dangerouslyAllowBrowser: true,
+        dangerouslyAllowBrowser: true
     });
 
     const models = await client.models.list();
@@ -43,8 +43,8 @@ export function createDeepSeek(opts?: typeof DeepSeekInfo.configs): Provider {
                 model,
                 apiKey,
                 configuration: {
-                    fetch: core_fetch2,
-                },
-            }),
+                    fetch: core_fetch2
+                }
+            })
     };
 }
