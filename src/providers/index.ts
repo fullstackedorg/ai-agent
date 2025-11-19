@@ -1,7 +1,6 @@
-import { ProviderInfo } from "./interface";
+import { ProviderInfo, Provider } from "./interface";
 import { OpenAIInfo, createOpenAI } from "./openai";
 import { OllamaInfo, createOllama } from "./ollama";
-import { Provider } from "./interface";
 import { AnthropicInfo, createClaude } from "./anthropic";
 import { GoogleInfo, createGemini } from "./google";
 import { createGrok, xAIInfo } from "./xai";
@@ -15,10 +14,10 @@ export const providersInfo = {
     google: GoogleInfo,
     xai: xAIInfo,
     deepseek: DeepSeekInfo,
-    mistral: MistralInfo,
+    mistral: MistralInfo
 } as const;
 
-export function getProvider(providerInfo: ProviderInfo<any>) {
+export function getProvider(providerInfo: ProviderInfo<any>): Provider {
     switch (providerInfo.id) {
         case "ollama":
             return createOllama(providerInfo.configs);

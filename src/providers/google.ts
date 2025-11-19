@@ -1,7 +1,6 @@
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { GoogleGenAI } from "@google/genai";
-import { Provider } from "@fullstacked/ai-agent/src/providers/interface";
-import { ProviderInfo } from "./interface";
+import { ProviderInfo, Provider } from "./interface";
 
 export const GoogleInfo: ProviderInfo<{
     apiKey: {
@@ -39,6 +38,7 @@ export function createGemini(opts?: typeof GoogleInfo.configs): Provider {
             new ChatGoogleGenerativeAI({
                 model,
                 apiKey,
+                maxRetries: 1
             }),
     };
 }

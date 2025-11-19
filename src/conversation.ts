@@ -6,7 +6,7 @@ import {
     mapStoredMessagesToChatMessages,
     StoredMessage,
     ToolMessage,
-    AIMessage,
+    AIMessage
 } from "@langchain/core/messages";
 import { createHumanInput } from "./input";
 import { createMarkdownStreamRenderer } from "./markdown";
@@ -18,6 +18,8 @@ import { Extension } from "@codemirror/state";
 import { Runnable } from "@langchain/core/runnables";
 import { BaseLanguageModelInput } from "@langchain/core/language_models/base";
 import { BaseChatModelCallOptions } from "@langchain/core/language_models/chat_models";
+import { humanMessageClass,
+messagesClass, conversationClass } from "./conversation.s";
 
 type ConversationOptions = {
     model: string;
@@ -39,15 +41,15 @@ export function createTool<T extends z.ZodSchema>(opts: {
         tool: tool(opts.fn, {
             name: opts.name,
             description: opts.description,
-            schema: opts.schema as any,
+            schema: opts.schema as any
         }),
-        message: opts.message,
+        message: opts.message
     };
 }
 
 function classForMessageType(message: BaseMessage) {
     if (message instanceof HumanMessage) {
-        return "human";
+        return humanMessageClass;
     } else if (
         message instanceof AIMessage ||
         message instanceof AIMessageChunk
@@ -74,13 +76,13 @@ export function createConversation(opts: ConversationOptions) {
     updateChatModel(opts.provider, opts.model);
 
     const element = document.createElement("div");
-    element.classList.add("conversation");
+    element.classList.add(conversationClass);
 
     const conversation: BaseMessage[] = mapStoredMessagesToChatMessages(
-        opts.messages || [],
+        opts.messages || []
     );
     const messagesContainer = document.createElement("div");
-    messagesContainer.classList.add("messages");
+    messagesContainer.classList.add(messagesClass);
 
     const renderMessage = (message: BaseMessage) => {
         const messageContainer = document.createElement("div");
@@ -88,11 +90,11 @@ export function createConversation(opts: ConversationOptions) {
         messagesContainer.append(messageContainer);
         const renderer = createMarkdownStreamRenderer(
             messageContainer,
-            opts.codemirrorViewExtension,
+            opts.codemirrorViewExtension
         );
         renderer.write(
             message.response_metadata["user-defined-message"] ||
-                (message.content as string),
+                (message.content as string)
         );
         renderer.end();
     };
@@ -101,7 +103,7 @@ export function createConversation(opts: ConversationOptions) {
 
     const onToolRequest = async (toolCall: ToolCall) => {
         const t = opts.tools.find(
-            ({ tool: { name } }) => name === toolCall.name,
+            ({ tool: { name } }) => name === toolCall.name
         );
 
         const container = document.createElement("div");
@@ -111,7 +113,7 @@ export function createConversation(opts: ConversationOptions) {
 
         const renderer = createMarkdownStreamRenderer(
             container,
-            opts.codemirrorViewExtension,
+            opts.codemirrorViewExtension
         );
         renderer.write(userDefinedMessage);
         renderer.end();
@@ -155,7 +157,7 @@ export function createConversation(opts: ConversationOptions) {
         opts.onStateChange?.("STREAMING");
         const renderer = createMarkdownStreamRenderer(
             responseContainer,
-            opts.codemirrorViewExtension,
+            opts.codemirrorViewExtension
         );
         let stream: Awaited<ReturnType<typeof chatModel.stream>>;
         try {
@@ -187,7 +189,7 @@ export function createConversation(opts: ConversationOptions) {
 
         const aiMessage = conversation.at(messageIndex) as AIMessageChunk;
         const toolPromises = aiMessage.tool_calls.map((t) => onToolRequest(t));
-        const awaitedToolPromises = await Promise.all(toolPromises);
+        await Promise.all(toolPromises);
 
         done = true;
 
@@ -198,7 +200,7 @@ export function createConversation(opts: ConversationOptions) {
     };
 
     const humanInput = createHumanInput({
-        onSubmit: onHumanPrompt,
+        onSubmit: onHumanPrompt
     });
 
     element.append(messagesContainer, humanInput);
@@ -214,14 +216,14 @@ export function createConversation(opts: ConversationOptions) {
             const response = await chatModel.invoke([
                 ...conversation,
                 new HumanMessage(
-                    "Without thinking, generate a title for this conversation with a 1 to 3 words.",
-                ),
+                    "Without thinking, generate a title for this conversation with a 1 to 3 words."
+                )
             ]);
             return response.content
                 .toString()
                 .replace(/<think>(.|\s)*<\/think>\s*/g, "") // remove ollama think tags
                 .replace(/(\*|\"|\')*/g, "") // remove any md formatting
                 .trim();
-        },
+        }
     };
 }

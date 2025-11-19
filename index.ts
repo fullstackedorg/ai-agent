@@ -1,10 +1,10 @@
+import "./index.s";
 import { createConversation, createTool } from "./src/conversation";
 import { z } from "zod";
 import fs from "fs";
 import { StoredMessage } from "@langchain/core/messages";
 import { getProvider, providersInfo } from "./src";
 import { oneDark } from "@codemirror/theme-one-dark";
-
 
 document.title = "FullStacked AI Agent";
 
@@ -52,7 +52,7 @@ async function createChat() {
     let messages: StoredMessage[] = undefined;
     if (await fs.exists(chatSaveFile)) {
         messages = JSON.parse(
-            await fs.readFile(chatSaveFile, { encoding: "utf8" }),
+            await fs.readFile(chatSaveFile, { encoding: "utf8" })
         );
     }
 
@@ -67,27 +67,27 @@ async function createChat() {
                 name: "ReadFile",
                 description: "Get the content of the file at path.",
                 schema: z.object({
-                    path: z.string(),
+                    path: z.string()
                 }),
                 fn: async ({ path }) => {
                     return fs.readFile(path, { encoding: "utf8" });
                 },
-                message: ({ path }) => `Reading ${path}`,
+                message: ({ path }) => `Reading ${path}`
             }),
             createTool({
                 name: "WriteFile",
                 description: "Write the content to the file at path.",
                 schema: z.object({
                     path: z.string(),
-                    content: z.string(),
+                    content: z.string()
                 }),
                 fn: async ({ path, content }) => {
                     return fs.writeFile(path, content);
                 },
                 message: ({ path, content }) =>
-                    `Writing ${content.length} chars to ${path}`,
-            }),
-        ],
+                    `Writing ${content.length} chars to ${path}`
+            })
+        ]
     });
 
     document.body.append(conversation.element);

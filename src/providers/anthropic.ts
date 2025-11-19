@@ -1,8 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { ChatAnthropic } from "@langchain/anthropic";
-import { ProviderInfo } from "./interface";
+import { Provider, ProviderInfo } from "./interface";
 import { core_fetch2 } from "fetch";
-import { Provider } from "@fullstacked/ai-agent/src/providers/interface";
 
 export const AnthropicInfo: ProviderInfo<{
     apiKey: {
@@ -17,16 +16,16 @@ export const AnthropicInfo: ProviderInfo<{
         apiKey: {
             title: "API Key",
             type: "string",
-            value: "",
-        },
-    },
+            value: ""
+        }
+    }
 };
 
 async function models(apiKey: string) {
     const anthropicClient = new Anthropic({
         apiKey: apiKey,
         fetch: core_fetch2,
-        dangerouslyAllowBrowser: true,
+        dangerouslyAllowBrowser: true
     });
 
     const models = await anthropicClient.models.list();
@@ -43,8 +42,8 @@ export function createClaude(opts?: typeof AnthropicInfo.configs): Provider {
                 model,
                 apiKey,
                 clientOptions: {
-                    fetch: core_fetch2,
-                },
-            }),
+                    fetch: core_fetch2
+                }
+            })
     };
 }
