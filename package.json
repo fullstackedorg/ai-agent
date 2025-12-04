@@ -1,11 +1,11 @@
 {
     "dependencies": {
         "@fullstacked/codemirror-view": "git+https://github.com:fullstackedorg/codemirror-view",
-        "@google/genai": "^1.29.1",
+        "@google/genai": "^1.31.0",
         "@langchain/anthropic": "^1.0.1",
         "@langchain/core": "^1.0.5",
         "@langchain/deepseek": "^1.0.1",
-        "@langchain/google-genai": "^1.0.1",
+        "@langchain/google-genai": "^2.0.2",
         "@langchain/mistralai": "^1.0.0",
         "@langchain/ollama": "^1.0.1",
         "@langchain/xai": "^1.0.1",
