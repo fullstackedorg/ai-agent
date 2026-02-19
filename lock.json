@@ -2,9 +2,9 @@
     "packages": [
         {
             "name": "@anthropic-ai/sdk",
-            "version": "0.71.1",
+            "version": "0.74.0",
             "as": [
-                "^0.71.0"
+                "^0.74.0"
             ],
             "location": [
                 "node_modules"
@@ -12,7 +12,7 @@
         },
         {
             "name": "@babel/runtime",
-            "version": "7.28.4",
+            "version": "7.28.6",
             "as": [
                 "^7.18.3"
             ],
@@ -35,8 +35,8 @@
             "version": "6.20.0",
             "as": [
                 "^6.0.0",
-                "^6.3.2",
-                "^6.7.1"
+                "^6.7.1",
+                "^6.3.2"
             ],
             "location": [
                 "node_modules"
@@ -44,7 +44,7 @@
         },
         {
             "name": "@codemirror/commands",
-            "version": "6.10.0",
+            "version": "6.10.2",
             "as": [
                 "^6.0.0"
             ],
@@ -108,7 +108,7 @@
         },
         {
             "name": "@codemirror/lang-liquid",
-            "version": "6.3.0",
+            "version": "6.3.1",
             "as": [
                 "^6.2.3"
             ],
@@ -148,12 +148,12 @@
         },
         {
             "name": "@codemirror/language",
-            "version": "6.11.3",
+            "version": "6.12.1",
             "as": [
                 "^6.0.0",
-                "^6.6.0",
-                "^6.8.0",
                 "^6.3.0",
+                "^6.8.0",
+                "^6.6.0",
                 "^6.4.0"
             ],
             "location": [
@@ -162,7 +162,7 @@
         },
         {
             "name": "@codemirror/lint",
-            "version": "6.9.2",
+            "version": "6.9.4",
             "as": [
                 "^6.0.0"
             ],
@@ -172,7 +172,7 @@
         },
         {
             "name": "@codemirror/search",
-            "version": "6.5.11",
+            "version": "6.6.0",
             "as": [
                 "^6.0.0"
             ],
@@ -182,10 +182,10 @@
         },
         {
             "name": "@codemirror/state",
-            "version": "6.5.2",
+            "version": "6.5.4",
             "as": [
-                "^6.0.0",
                 "^6.5.2",
+                "^6.0.0",
                 "^6.5.0",
                 "^6.4.0"
             ],
@@ -205,13 +205,14 @@
         },
         {
             "name": "@codemirror/view",
-            "version": "6.38.8",
+            "version": "6.39.14",
             "as": [
-                "^6.0.0",
                 "^6.38.1",
+                "^6.0.0",
                 "^6.23.0",
                 "^6.17.0",
                 "^6.35.0",
+                "^6.37.0",
                 "^6.27.0"
             ],
             "location": [
@@ -223,6 +224,7 @@
             "version": "0.0.0",
             "git": "default",
             "as": [
+                "github.com:fullstackedorg/codemirror-view",
                 "git+https://github.com:fullstackedorg/codemirror-view"
             ],
             "location": [
@@ -231,9 +233,9 @@
         },
         {
             "name": "@google/genai",
-            "version": "1.31.0",
+            "version": "1.42.0",
             "as": [
-                "^1.31.0"
+                "^1.42.0"
             ],
             "location": [
                 "node_modules"
@@ -261,10 +263,9 @@
         },
         {
             "name": "@langchain/anthropic",
-            "version": "1.2.1",
+            "version": "1.3.18",
             "as": [
-                "^1.0.1",
-                "^1.2.1"
+                "^1.3.18"
             ],
             "location": [
                 "node_modules"
@@ -272,9 +273,9 @@
         },
         {
             "name": "@langchain/core",
-            "version": "1.1.8",
+            "version": "1.1.26",
             "as": [
-                "^1.1.8"
+                "^1.1.26"
             ],
             "location": [
                 "node_modules"
@@ -282,10 +283,9 @@
         },
         {
             "name": "@langchain/deepseek",
-            "version": "1.0.2",
+            "version": "1.0.12",
             "as": [
-                "^1.0.1",
-                "^1.0.2"
+                "^1.0.12"
             ],
             "location": [
                 "node_modules"
@@ -293,9 +293,9 @@
         },
         {
             "name": "@langchain/google-genai",
-            "version": "2.1.3",
+            "version": "2.1.19",
             "as": [
-                "^2.1.3"
+                "^2.1.19"
             ],
             "location": [
                 "node_modules"
@@ -303,9 +303,9 @@
         },
         {
             "name": "@langchain/langgraph",
-            "version": "1.0.3",
+            "version": "1.1.5",
             "as": [
-                "^1.0.0"
+                "^1.1.2"
             ],
             "location": [
                 "node_modules"
@@ -323,9 +323,9 @@
         },
         {
             "name": "@langchain/langgraph-sdk",
-            "version": "1.1.0",
+            "version": "2.0.0",
             "as": [
-                "~1.1.0"
+                "~2.0.0"
             ],
             "location": [
                 "node_modules"
@@ -333,10 +333,9 @@
         },
         {
             "name": "@langchain/mistralai",
-            "version": "1.0.1",
+            "version": "1.0.4",
             "as": [
-                "^1.0.0",
-                "^1.0.1"
+                "^1.0.4"
             ],
             "location": [
                 "node_modules"
@@ -344,10 +343,9 @@
         },
         {
             "name": "@langchain/ollama",
-            "version": "1.0.3",
+            "version": "1.2.3",
             "as": [
-                "^1.0.1",
-                "^1.0.3"
+                "^1.2.3"
             ],
             "location": [
                 "node_modules"
@@ -355,9 +353,9 @@
         },
         {
             "name": "@langchain/openai",
-            "version": "1.1.3",
+            "version": "1.2.8",
             "as": [
-                "1.1.3"
+                "1.2.8"
             ],
             "location": [
                 "node_modules"
@@ -365,10 +363,9 @@
         },
         {
             "name": "@langchain/xai",
-            "version": "1.0.2",
+            "version": "1.3.4",
             "as": [
-                "^1.0.1",
-                "^1.0.2"
+                "^1.3.4"
             ],
             "location": [
                 "node_modules"
@@ -376,14 +373,15 @@
         },
         {
             "name": "@lezer/common",
-            "version": "1.4.0",
+            "version": "1.5.1",
             "as": [
                 "^1.3.0",
-                "^1.1.0",
-                "^1.0.0",
+                "^1.5.0",
                 "^1.0.2",
+                "^1.2.1",
+                "^1.0.0",
                 "^1.2.0",
-                "^1.2.1"
+                "^1.1.0"
             ],
             "location": [
                 "node_modules"
@@ -391,7 +389,7 @@
         },
         {
             "name": "@lezer/css",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "as": [
                 "^1.1.7",
                 "^1.1.0"
@@ -423,7 +421,7 @@
         },
         {
             "name": "@lezer/html",
-            "version": "1.3.12",
+            "version": "1.3.13",
             "as": [
                 "^1.3.12"
             ],
@@ -453,11 +451,11 @@
         },
         {
             "name": "@lezer/lr",
-            "version": "1.4.4",
+            "version": "1.4.8",
             "as": [
                 "^1.0.0",
-                "^1.3.0",
-                "^1.3.1"
+                "^1.3.1",
+                "^1.3.0"
             ],
             "location": [
                 "node_modules"
@@ -465,7 +463,7 @@
         },
         {
             "name": "@lezer/markdown",
-            "version": "1.6.0",
+            "version": "1.6.3",
             "as": [
                 "^1.0.0"
             ],
@@ -505,9 +503,140 @@
         },
         {
             "name": "@mistralai/mistralai",
-            "version": "1.10.0",
+            "version": "1.14.0",
             "as": [
                 "^1.3.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/aspromise",
+            "version": "1.1.2",
+            "as": [
+                "^1.1.2",
+                "^1.1.1"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/base64",
+            "version": "1.1.2",
+            "as": [
+                "^1.1.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/codegen",
+            "version": "2.0.4",
+            "as": [
+                "^2.0.4"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/eventemitter",
+            "version": "1.1.0",
+            "as": [
+                "^1.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/fetch",
+            "version": "1.1.0",
+            "as": [
+                "^1.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/float",
+            "version": "1.0.2",
+            "as": [
+                "^1.0.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/inquire",
+            "version": "1.1.0",
+            "as": [
+                "^1.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/path",
+            "version": "1.1.2",
+            "as": [
+                "^1.1.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/pool",
+            "version": "1.1.0",
+            "as": [
+                "^1.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@protobufjs/utf8",
+            "version": "1.1.0",
+            "as": [
+                "^1.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@standard-schema/spec",
+            "version": "1.1.0",
+            "as": [
+                "1.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@types/json-schema",
+            "version": "7.0.15",
+            "as": [
+                "^7.0.15"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "@types/node",
+            "version": "25.3.0",
+            "as": [
+                "\u003e=13.7.0"
             ],
             "location": [
                 "node_modules"
@@ -567,6 +696,7 @@
             "name": "ansi-styles",
             "version": "6.2.3",
             "as": [
+                "^6.2.3",
                 "^6.1.0"
             ],
             "location": [
@@ -587,8 +717,8 @@
             "name": "base64-js",
             "version": "1.5.1",
             "as": [
-                "^1.3.0",
-                "^1.5.1"
+                "^1.5.1",
+                "^1.3.0"
             ],
             "location": [
                 "node_modules"
@@ -768,9 +898,9 @@
         },
         {
             "name": "eventemitter3",
-            "version": "4.0.7",
+            "version": "5.0.4",
             "as": [
-                "^4.0.4"
+                "^5.0.1"
             ],
             "location": [
                 "node_modules"
@@ -898,6 +1028,16 @@
             ]
         },
         {
+            "name": "is-network-error",
+            "version": "1.3.0",
+            "as": [
+                "^1.1.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "isexe",
             "version": "2.0.0",
             "as": [
@@ -969,9 +1109,9 @@
         },
         {
             "name": "langchain",
-            "version": "1.2.3",
+            "version": "1.2.25",
             "as": [
-                "^1.2.3"
+                "^1.2.25"
             ],
             "location": [
                 "node_modules"
@@ -979,9 +1119,19 @@
         },
         {
             "name": "langsmith",
-            "version": "0.4.2",
+            "version": "0.5.4",
             "as": [
-                "\u003e=0.4.0 \u003c1.0.0"
+                "\u003e=0.5.0 \u003c1.0.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "long",
+            "version": "5.3.2",
+            "as": [
+                "^5.0.0"
             ],
             "location": [
                 "node_modules"
@@ -1009,7 +1159,7 @@
         },
         {
             "name": "minipass",
-            "version": "7.1.2",
+            "version": "7.1.3",
             "as": [
                 "^7.1.2",
                 "^5.0.0 || ^6.0.2 || ^7.0.0"
@@ -1070,9 +1220,9 @@
         },
         {
             "name": "openai",
-            "version": "6.10.0",
+            "version": "6.22.0",
             "as": [
-                "^6.9.0"
+                "^6.18.0"
             ],
             "location": [
                 "node_modules"
@@ -1090,9 +1240,9 @@
         },
         {
             "name": "p-queue",
-            "version": "6.6.2",
+            "version": "9.1.0",
             "as": [
-                "^6.6.2"
+                "^9.0.1"
             ],
             "location": [
                 "node_modules"
@@ -1102,7 +1252,17 @@
             "name": "p-retry",
             "version": "4.6.2",
             "as": [
-                "4"
+                "^4.6.2"
+            ],
+            "location": [
+                "node_modules/@google/genai/node_modules"
+            ]
+        },
+        {
+            "name": "p-retry",
+            "version": "7.1.1",
+            "as": [
+                "^7.1.1"
             ],
             "location": [
                 "node_modules"
@@ -1110,9 +1270,9 @@
         },
         {
             "name": "p-timeout",
-            "version": "3.2.0",
+            "version": "7.0.1",
             "as": [
-                "^3.2.0"
+                "^7.0.0"
             ],
             "location": [
                 "node_modules"
@@ -1150,9 +1310,19 @@
         },
         {
             "name": "prettier",
-            "version": "3.7.4",
+            "version": "3.8.1",
             "as": [
                 "^3.6.2"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "protobufjs",
+            "version": "7.5.4",
+            "as": [
+                "^7.5.4"
             ],
             "location": [
                 "node_modules"
@@ -1190,7 +1360,7 @@
         },
         {
             "name": "semver",
-            "version": "7.7.3",
+            "version": "7.7.4",
             "as": [
                 "^7.6.3"
             ],
@@ -1321,6 +1491,16 @@
             ]
         },
         {
+            "name": "undici-types",
+            "version": "7.18.2",
+            "as": [
+                "~7.18.0"
+            ],
+            "location": [
+                "node_modules"
+            ]
+        },
+        {
             "name": "uuid",
             "version": "10.0.0",
             "as": [
@@ -1328,12 +1508,11 @@
             ],
             "location": [
                 "node_modules/@langchain/ollama/node_modules",
-                "node_modules/@langchain/langgraph/node_modules",
                 "node_modules/@langchain/langgraph-checkpoint/node_modules",
-                "node_modules/@langchain/mistralai/node_modules",
+                "node_modules/langchain/node_modules",
                 "node_modules/langsmith/node_modules",
-                "node_modules/@langchain/core/node_modules",
-                "node_modules/langchain/node_modules"
+                "node_modules/@langchain/langgraph/node_modules",
+                "node_modules/@langchain/core/node_modules"
             ]
         },
         {
@@ -1343,17 +1522,17 @@
                 "^11.1.0"
             ],
             "location": [
-                "node_modules"
+                "node_modules/@langchain/google-genai/node_modules"
             ]
         },
         {
             "name": "uuid",
-            "version": "9.0.1",
+            "version": "13.0.0",
             "as": [
-                "^9.0.0"
+                "^13.0.0"
             ],
             "location": [
-                "node_modules/@langchain/langgraph-sdk/node_modules"
+                "node_modules"
             ]
         },
         {
@@ -1418,7 +1597,7 @@
         },
         {
             "name": "ws",
-            "version": "8.18.3",
+            "version": "8.19.0",
             "as": [
                 "^8.18.0"
             ],
@@ -1428,21 +1607,11 @@
         },
         {
             "name": "zod",
-            "version": "3.25.76",
+            "version": "4.3.6",
             "as": [
-                "^3.20.0"
-            ],
-            "location": [
-                "node_modules/@mistralai/mistralai/node_modules"
-            ]
-        },
-        {
-            "name": "zod",
-            "version": "4.1.13",
-            "as": [
-                "^4.1.12",
+                "^4.3.6",
                 "^3.25.76 || ^4",
-                "^4.1.13"
+                "^3.25.0 || ^4.0.0"
             ],
             "location": [
                 "node_modules"
@@ -1450,7 +1619,7 @@
         },
         {
             "name": "zod-to-json-schema",
-            "version": "3.25.0",
+            "version": "3.25.1",
             "as": [
                 "^3.24.1"
             ],
